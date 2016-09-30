@@ -1,0 +1,75 @@
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=gb2312'>
+<title>{$sitetitle}</title>
+<LINK href="./templates/{$style}/css/style.css" rel=stylesheet type=text/css>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr> 
+    <td  height="24"><strong>当前位置 >> {$now_typename}</strong> </td>
+  </tr>
+  <tr>
+    <td  height="85" valign="top"> 
+    <TABLE cellPadding=2 cellSpacing=1  width="100%" >
+        <!--DWLayoutTable-->
+    <tr>
+    <td width="100%" >
+      {foreach key=keyid item=cont from=$content} 
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" class=tableborder>
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="43"  valign="top" height=46>
+	  <table width="100%" border="0" cellpadding="1" cellspacing="0" background="./templates/{$style}/images/date-bg.gif">
+      <!--DWLayoutTable-->
+      <tr>
+        <td width="43" height="14" valign="top" align=center>
+         {$cont.date_m}月</td>
+      </tr>
+      <tr>
+        <td height="32" valign="middle" align=center>
+        <p style="font-size: 16px ;color=red;"><b>{$cont.date_d}</b></p>
+        </td>
+      </tr>
+    </table>
+    </td>
+      <td  valign="middle">
+      	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <!--DWLayoutTable-->
+      <tr>
+           <td colspan=3 width="100%" height="26" valign="middle" nowrap class=tdrow><a href=?filename=show&id={$cont.articleid} target=_blank><font color=#249624><b>
+    {$cont.includepic}<b>{$cont.title}</b></font></a></td></tr>
+      <tr><td height="1" valign="niddle" bgcolor="#A1C34D" colspan=3>
+    </td>
+    </tr>
+    <tr>
+    <td height="19" valign="bottom" width=120>
+    【部 门】:{$cont.managename} </td>
+    <td height="19" valign="bottom" width=120>
+    【发布者】:{$cont.author} </td>
+    <td height="19" valign="bottom" >
+    【添加时间】:{$cont.date_t}</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="10" valign="middle" align=center>
+        </td>
+      </tr>
+    </table>
+      {/foreach}
+    </td>
+    </tr>
+    <tr align="center" valign="middle">
+    <td  class=tablerowhighlight>{$pagenav}</td>
+    </tr>
+    </TABLE>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

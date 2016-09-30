@@ -1,0 +1,370 @@
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=gb2312'>
+<title>{$sitetitle}</title>
+<LINK href="./templates/{$style}/css/style.css" rel=stylesheet type=text/css>
+{if $action=='setting'}
+<script>
+function show(c_Str){
+if(document.all(c_Str).style.display=='none'){
+document.all(c_Str).style.display='block'
+}else{
+document.all(c_Str).style.display='none'
+}
+}
+function showset(c_Str){
+	var i,j;
+	i="setid";
+	j="conid";
+if (c_Str=="setid") {
+  	document.all(c_Str).style.display='block';
+  	document.all(j).style.display='none'
+}else{
+    document.all(c_Str).style.display='block';
+  	document.all(i).style.display='none'
+}
+}
+</script>
+<body>
+<table width="100%"  border="0" cellpadding="4" cellspacing="1" bgcolor="#000000">
+  <tr>
+    <td bgcolor="#FFFFFF">
+    
+    <table width="100%"  border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align=center></td>
+      </tr>
+      
+      <tr>
+        <td>
+<table width="100%"  border="0" cellspacing="0" cellpadding="4"> 
+<tbody>
+           <tr>
+              <td>
+
+       <table width="100%"  border="0" cellpadding="4" cellspacing="1" bgcolor="#000000">
+                  <tr>
+                    <td height="22" class="tablepic"><img src="{$rootpath}/templates/{$style}/images/minus.gif" width="20" height="9"><a href="javascript:show('setvarid')"><font color="#ffffff">系统设置</font></a></td>
+                  </tr>
+                   <tbody style="display:none" id="setvarid">
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=setvar&action=setvar" target="right">系统信息</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=setvar&action=setindex" target="right">首页设置</a></td>
+                  </tr>
+             </tbody>
+              </table>
+</td>
+            </tr>
+<tr>
+<td>
+<table width="100%"  border="0" cellpadding="4" cellspacing="1" bgcolor="#000000">
+                  <tr>
+                    <td height="22" class="tablepic"><img src="{$rootpath}/templates/{$style}/images/minus.gif" width="20" height="9"><a href="javascript:show('foldertype')"><font color=#ffffff>栏目设置</font></a></td>
+                  </tr>
+              <TBODY style="display:none" id="foldertype">
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=type&action=addtype" target="right">栏目添加</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=type&action=listtype" target="right">栏目管理</a></td>
+                  </tr>
+             </tbody>
+              </table>
+</td>
+</tr>
+<tr>
+<td>
+<table width="100%"  border="0" cellpadding="4" cellspacing="1" bgcolor="#000000">
+                  <tr>
+                    <td height="22" class="tablepic"><img src="{$rootpath}/templates/{$style}/images/minus.gif" width="20" height="9"><a href="javascript:show('foldertable')"><font color=#ffffff>桌面设置</font></a></td>
+                  </tr>
+              <TBODY style="display:none" id="foldertable">
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=table&action=settable" target="right">桌面左右栏设置</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=table&action=settableleft" target="right">桌面左栏默认设置</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=table&action=settableright" target="right">桌面右栏默认设置</a></td>
+                  </tr>
+             </tbody>
+              </table>
+</td>
+</tr>
+<tr>
+<td>
+<table width="100%"  border="0" cellpadding="4" cellspacing="1" bgcolor="#000000">
+                  <tr>
+                    <td height="22" class="tablepic"><img src="{$rootpath}/templates/{$style}/images/minus.gif" width="20" height="9"><a href="javascript:show('folderuserset')"><font color=#ffffff>用户设置</font></a></td>
+                  </tr>
+              <TBODY style="display:none" id="folderuserset">
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=user&action=useradd" target="right">添加用户</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=user&action=useredit" target="right">编辑用户</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=user&action=modifypassword" target="right">修改密码</a></td>
+                  </tr>
+             </tbody>
+              </table>
+</td>
+</tr>
+<tr>
+<td>
+<table width="100%"  border="0" cellpadding="4" cellspacing="1" bgcolor="#000000">
+                  <tr>
+                    <td height="22" class="tablepic"><img src="{$rootpath}/templates/{$style}/images/minus.gif" width="20" height="9"><a href="javascript:show('foldermanagementset')"><font color=#ffffff>部门设置</font></a></td>
+                  </tr>
+              <TBODY style="display:none" id="foldermanagementset">
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=setting&action=manage&do=add" target="right">部门添加</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=setting&action=manage&do=list" target="right">部门编辑</a></td>
+                  </tr>
+             </tbody>
+              </table>
+</td>
+</tr>
+<tr>
+<td>
+<table width="100%"  border="0" cellpadding="4" cellspacing="1" bgcolor="#000000">
+                  <tr>
+                    <td height="22" class="tablepic"><img src="{$rootpath}/templates/{$style}/images/minus.gif" width="20" height="9"><a href="javascript:show('foldergroupset')"><font color=#ffffff>组别设置</font></a></td>
+                  </tr>
+              <TBODY style="display:none" id="foldergroupset">
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=setting&action=group&do=add" target="right">组别添加</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=setting&action=group&do=list" target="right">组别编辑</a></td>
+                  </tr>
+             </tbody>
+              </table>
+</td>
+</tr>
+<tr>
+<td>
+<table width="100%"  border="0" cellpadding="4" cellspacing="1" bgcolor="#000000">
+                  <tr>
+                    <td height="22" class="tablepic"><img src="{$rootpath}/templates/{$style}/images/minus.gif" width="20" height="9"><a href="javascript:show('foldersubjectset')"><font color=#ffffff>学科设置</font></a></td>
+                  </tr>
+              <TBODY style="display:none" id="foldersubjectset">
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=setting&action=subject&do=add" target="right">学科添加</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=setting&action=subject&do=list" target="right">学科编辑</a></td>
+                  </tr>
+             </tbody>
+              </table>
+</td>
+</tr>
+<tr>
+<td>
+<table width="100%"  border="0" cellpadding="4" cellspacing="1" bgcolor="#000000">
+                  <tr>
+                    <td height="22" class="tablepic"><img src="{$rootpath}/templates/{$style}/images/minus.gif" width="20" height="9"><a href="javascript:show('folderother')"><font color=#ffffff>其他设置</font></a></td>
+                  </tr>
+              <TBODY style="display:none" id="folderother">
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=announcement" target="right">本站公告</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=chajian" target="right">系统插件</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=friendlink" target="right">友情链接</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=ads" target="right">广告管理</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=database" target="right">数据库备份</a></td>
+                  </tr>
+             </tbody>
+              </table>
+</td>
+</tr>
+<tr>
+ <td>
+<table width="100%"  border="0" cellpadding="4" cellspacing="1" bgcolor="#000000">
+<tr>
+ <td height="22" class="tablepic"><img src="{$rootpath}/templates/{$style}/images/minus.gif" width="20" height="9"><a href="javascript:show('foldermodule')"><font color=#ffffff>模版设置</font></a></td>
+     </tr>
+              <TBODY style="display:none" id="foldermodule">
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=template&action=add" target="right">模版添加</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=template&action=modify" target="right">模版管理</a></td>
+                  </tr>
+                          <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=template&action=setadd" target="right">版系添加</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=template&action=setlist" target="right">版系管理</a></td>
+                  </tr>
+             </tbody>
+              </table>
+</td>
+  </tr>
+<tr>
+ <td>
+<table width="100%"  border="0" cellpadding="4" cellspacing="1" bgcolor="#000000">
+                  <tr>
+                    <td height="22" class="tablepic"><img src="{$rootpath}/templates/{$style}/images/minus.gif" width="20" height="9"><a href="javascript:show('folderreplace')"><font color=#ffffff>日志管理</font></a></td>
+                  </tr>
+              <TBODY style="display:none" id="folderreplace">
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=log&action=admin" target="right">操作记录</a></td>
+                  </tr>
+                  <tr>
+                    <td height="22" bgcolor="#FFFFFF" onMouseOver="this.style.backgroundColor='#F8F8F8'" onMouseOut="this.style.backgroundColor='#FFFFFF'"><a href="?filename=log&action=login" target="right">登陆记录</a></td>
+                  </tr>
+             </tbody>
+              </table>
+          </td>
+            </tr>
+            </tbody>
+        </table>
+        </td>
+      </tr>
+</table>
+{elseif $action=='listmenu'}
+<script language="JavaScript">
+var openedid;
+var openedid_ft;
+var flag=0,sflag=0;
+
+//-------- 菜单点击事件 -------
+function show(srcelement)
+{
+  var targetid,srcelement,targetelement;
+  var strbuf;
+
+  //-------- 如果点击了展开或收缩按钮---------
+     targetid=srcelement.id+"d";
+     targetelement=document.all(targetid);
+
+     if (targetelement.style.display=="none")
+     {
+        targetelement.style.display='';
+        strbuf=srcelement.src;
+        if(strbuf.indexOf("plus.gif")>-1)
+                srcelement.src="./templates/{$style}/images/menu/tree_minus.gif";
+        else
+                srcelement.src="./templates/{$style}/images/menu/tree_minusl.gif";
+     }
+     else
+     {
+        targetelement.style.display="none";
+        strbuf=srcelement.src;
+        if(strbuf.indexOf("minus.gif")>-1)
+                srcelement.src="./templates/{$style}/images/menu/tree_plus.gif";
+        else
+                srcelement.src="./templates/{$style}/images/menu/tree_plusl.gif";
+     }
+
+}
+
+function openurl(surl){
+window.parent.right.location.href=surl;
+}
+
+</script>
+<body topmargin="0" leftmargin="0" rightMargin="0">
+ <table class="small" border="0" cellspacing="0" cellpadding="0">
+   <tr>
+    <td height=20>
+    	<img src="./templates/{$style}/images/menu/tree_minusl.gif"  style="cursor:hand">
+    </td>
+    <td><img src="./templates/{$style}/images/menu/{$menu_id_img}" border="0" WIDTH="19" HEIGHT="17"></td>
+    <td colspan="3">&nbsp;{$menu_title}</a>
+    	&nbsp;&nbsp;&nbsp;<a href="javascript:menu_expand()"><u><span id="expand_text">展开</span></u></a>
+  </td>
+   </tr>
+ </table>
+ <table class="small" border="0" cellspacing="0" cellpadding="0">
+   <tr>
+   	<td width=20></td>
+    <td> 
+{$show_type_table}
+  </td>
+</tr>
+</table>
+<script language="JavaScript">
+//-------- 菜单全部展开/收缩 -------
+var menu_flag=0;
+function menu_expand()
+{
+  if(menu_flag==0)
+     expand_text.innerHTML="收缩";
+  else
+     expand_text.innerHTML="展开";
+
+  menu_flag=1-menu_flag;
+
+  for (i=0; i<document.all.length; i++)
+  {
+    srcelement=document.all(i);
+    if(srcelement.className=="outline")
+    {
+      targetid=srcelement.id+"d";
+      targetelement=document.all(targetid);
+      if(menu_flag==1)
+      {
+        targetelement.style.display='';
+        strbuf=srcelement.src;
+        if(strbuf.indexOf("plus.gif")>-1)
+           srcelement.src="./templates/{$style}/images/menu/tree_minus.gif";
+        else
+           srcelement.src="./templates/{$style}/images/menu/tree_minusl.gif";
+      }
+      else
+      {
+        targetelement.style.display="none";
+        strbuf=srcelement.src;
+        if(strbuf.indexOf("minus.gif")>-1)
+           srcelement.src="./templates/{$style}/images/menu/tree_plus.gif";
+        else
+           srcelement.src="./templates/{$style}/images/menu/tree_plusl.gif";
+      }
+    }
+  }
+}
+
+//-------- 收缩打开的主菜单项 -------
+function menu_shrink()
+{
+  for(i=0; i<document.all.length; i++)
+  {
+    srcelement=document.all(i);
+    if(srcelement.title!="")
+    {
+      strbuf=srcelement.src;
+
+      if(strbuf.indexOf("minus")>-1)
+      {
+         targetid=srcelement.id+"d";
+         targetelement=document.all(targetid);
+         targetelement.style.display='none';
+
+         if(strbuf.indexOf("minus.gif")>-1)
+            srcelement.src="./templates/{$style}/images/menu/tree_plus.gif";
+         else
+            srcelement.src="./templates/{$style}/images/menu/tree_plusl.gif";
+       }
+     }
+  }
+}
+</script>
+</body>
+{/if}
+</body>
+</html>

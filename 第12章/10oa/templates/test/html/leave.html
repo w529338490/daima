@@ -1,0 +1,465 @@
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=gbk'>
+<title>{$sitetitle}</title>
+<LINK href="./templates/{$style}/css/style.css" rel=stylesheet type=text/css>
+<SCRIPT language=JavaScript>
+function check(theform)
+{
+   if(theform.leavetypeid.value == 0)
+   {
+   		alert("请选择请假类型!");
+		theform.leavetypeid.focus();
+		return false ;
+   }
+if(theform.reason.value =="")
+   {
+   		alert("请输入请假原因!");
+		theform.reason.focus();
+		return false ;
+   }
+ if(theform.leaver.value =="")
+   {
+   		alert("请选择请假者!");
+		theform.leaver.focus();
+		return false ;
+   }
+ if(theform.stime.value =="")
+   {
+   		alert("请输入开始时间!");
+		theform.stime.focus();
+		return false ;
+   }
+ if(theform.etime.value =="")
+   {
+   		alert("请输入结束时间!");
+		theform.etime.focus();
+		return false ;
+   }   
+  }
+</SCRIPT>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr> 
+    <td  height="24" valign="top">
+    	 <TABLE width="100%" border=0 align=center cellPadding=2 cellSpacing=1 class=tableborder>
+        <!--DWLayoutTable-->
+        <TBODY>
+          <TR> 
+            <TD class=tablerow><B>管理选项：</B>             
+            	<A href="?filename=leave&typeid={$typeid}">今日请假 </a> |
+            	<A href="?filename=leave&typeid={$typeid}&action=week">本周请假 </a> |            
+            	<A href="?filename=leave&typeid={$typeid}&action=all">所有请假</A> | 
+            	<A href="?filename=leave&typeid={$typeid}&action=myleave">我的请假</A> |
+            	<A href="?filename=leave&typeid={$typeid}&action=add">申请请假</A> | 
+            	<A href="?filename=leave&typeid={$typeid}&action=pass">请假审核</A> | 
+      </TD>
+          </TR>
+        </TBODY>
+      </TABLE></td>
+  </tr>
+  {if $action=='add'}
+  <tr> 
+      <td  height="24"><strong>当前位置 >> 申请请假</strong></td>
+  </tr>
+  <tr> 
+    <td  height="309" valign="top"> 
+    	<TABLE cellPadding=2 cellSpacing=1 class=tableborder width="100%" >
+        <!--DWLayoutTable--> 
+          <form id=form1 name="form1" method="post" action="?filename=deal&action=addleave" OnSubmit="return check(this)" onReset="return ResetForm();">
+    
+        <TBODY>
+          <TR> 
+            <TH colSpan=2 class=main_title>申请请假</TH>
+          </TR>
+               <TR> 
+              <TD class=tdrow nowrap>请假类型</TD>
+              <TD class=tdrow>
+                <input type=text name=leavetypename size=15 readonly style="background-color:#eeeeee;">
+              	<select name="leavetypeid" onclick="javasctipt:if (this.selectedIndex>0) document.form1.leavetypename.value=this.options[this.selectedIndex].text;else document.form1.leavetypename.value='';">
+                 <option value="0"></option>
+                 <option value="1">公假</option>
+                 <option value="2">事假</option>                
+                 <option value="3">病假</option>
+                </select> <FONT color=#ff0000>*</FONT></TD>
+            </TR>        
+          <TR> 
+            <TD class=tdrow>请假原因</TD>
+            <TD class=tdrow>
+            	 <textarea name="reason" cols="60" rows="4"></textarea> <FONT color=#ff0000>*</FONT>
+            	</TD>
+          </TR>
+            <TR> 
+              <TD class=tdrow>请假者</TD>
+              <TD class=tdrow>
+              	<INPUT id=author maxLength=30 name=leaver value="{$real_name}" size=10 readonly> 
+                <FONT color=blue>&lt;=[<A 
+      href="#dd" 
+      onclick="document.form1.leaver.value='{$real_name}'"><FONT 
+      color=green>{$real_name}</FONT></A>] [<A 
+      href="#dd" 
+      onclick="window.open('index.php?filename=userlist&action=useradd_2','new','height=200, width=200, top=200, left=100, toolbar=no, menubar=no, scrollbars=yes, resizable=no,location=no, status=no')"><FONT 
+      color=green>教职工名单</FONT></A>] </FONT></TD>
+            </TR>
+            <TR> 
+              <TD class=tdrow>开始日期</TD>
+              <TD class=tdrow>
+              	<input type=text name=stime size=15 >
+              	<img onclick="window.open('index.php?filename=calendar&inputname=stime','new','height=150, width=200, top=200, left=100, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no')" style="cursor:hand" src="./templates/{$style}/images/menu/calendar.gif" border=0>
+              	(日期格式为2007-4-23)<FONT color=#ff0000>*</FONT></TD>
+            </TR>              
+            <TR> 
+              <TD class=tdrow>结束日期</TD>
+              <TD class=tdrow>
+              	 <input type=text name=etime size=15 >
+              	<img onclick="window.open('index.php?filename=calendar&inputname=etime','new','height=150, width=200, top=200, left=100, toolbar=no, menubar=no, scrollbars=no, resizable=no,location=no, status=no')" style="cursor:hand" src="./templates/{$style}/images/menu/calendar.gif" border=0>
+              	(日期格式为2007-4-23)<FONT color=#ff0000>*</FONT></TD>
+            </TR>
+  
+          <TBODY>
+            <TR> 
+              <TD class=tdrow>&nbsp; </TD>
+              <TD class=tdrow>
+                <input type="hidden" name="typeid" value="{$typeid}">
+                <input type="submit" name="Submit" value=" 发 表 " > 
+                &nbsp; <input type="reset" name="Submit1" value=" 清 除 "> </TD>
+            </TR>
+          </TBODY>
+        </FORM>
+      </TABLE>
+      </td>
+  </tr>
+  {elseif $action=="edit"}
+  {elseif $action=="del"}
+  {elseif $action=="passleave"}
+  {elseif $action=="pass"}
+  <tr> 
+      <td  height="24"><strong>当前位置 >>  请假审核</strong></td>
+  </tr>
+  <tr>
+    <td  height="85" valign="top"> 
+    <TABLE cellPadding=2 cellSpacing=1  width="100%" >
+        <!--DWLayoutTable-->
+    <tr>
+    <td width="100%" >
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class=tableborder>
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="43"  valign="middle" height=46 align=center>
+	  <table width="100%" border="0" cellpadding="1" cellspacing="0" background="./templates/{$style}/images/date-bg.gif" align=center>
+      <!--DWLayoutTable-->
+      <tr>
+        <td width="43" height="14" valign="top" align=center>
+         {$date_n}月</td>
+      </tr>
+      <tr>
+        <td height="32" valign="middle" align=center>
+        <p style="font-size: 16px;color=red;"><b>今日</b></p>
+        </td>
+      </tr>
+    </table>
+    </td>
+      <td  valign="top">
+      	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <!--DWLayoutTable-->
+    <tr>
+    <td >
+        <table width="100%" border="0" cellpadding="1" cellspacing="1" class=table1>
+         <tr>
+         <td nowrap height=24 align=center valign=middle class=tr_head width=15%>请假者</td>
+         <td nowrap align=center valign=middle class=tr_head width=10%>类型</td>
+         <td nowrap align=center valign=middle class=tr_head width=45%>原因</td>
+         <td nowrap align=center valign=middle class=tr_head width=10%>开始时间</td>
+         <td nowrap align=center valign=middle class=tr_head width=10%>结束时间</td>   
+         <td nowrap align=center valign=middle class=tr_head width=10%>审批人</td>         
+        </tr>
+        <tr> 	
+        	<td height="1" valign="niddle" bgcolor="#A1C34D" colspan=6></td>
+        </tr>
+         <!--DWLayoutTable-->
+        {foreach key=keyid item=cont from=$content}
+           <tr>
+           <td nowrap class=td1 height=24 align=center valign=middle >{$cont.leaver}</td>
+           <td nowrap class=td1 align=center valign=middle >{$cont.leavetypeid}</td>
+           <td nowrap class=td1 align=left valign=middle >{$cont.reason}</td>
+           <td nowrap class=td1 align=center valign=middle >{$cont.stime}</td>
+           <td nowrap class=td1 align=center valign=middle >{$cont.etime}</td>   
+           <td nowrap class=td1 align=center valign=middle >
+           {if $cont.pass_state==""}  
+           <a href=?filename=leave&action=passleave&leaver={$cont.leaver}&leaveid={$cont.leaveid}&typeid={$cont.typeid}>请审批</a>
+          | <a href=?filename=leave&action=delleave&leaver={$cont.leaver}&leaveid={$cont.leaveid}&typeid={$cont.typeid}>删除</a>
+           {else}<a href=?filename=leave&action=delleave&leaver={$cont.leaver}&leaveid={$cont.leaveid}&typeid={$cont.typeid}>删除</a>
+           {/if}
+           </td>         
+          </tr>
+        {foreachelse}
+			  <tr>
+   	       <td nowrap class=td1 colspan=6 height=24 align=center valign=middle >今日没有人请假,不用审批</td>        
+        </tr>
+			  {/foreach}	           
+        </table>
+      </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="10" valign="middle" align=center>
+        </td>
+      </tr>
+    </table>
+    </td>
+    </tr>
+    <tr align="center" valign="middle">
+    <td  class=tdrowhighlight>{$pagenav}</td>
+    </tr>
+    </TABLE>
+    </td>
+  </tr>
+  {elseif $action=="all"}
+  <tr> 
+      <td  height="24"><strong>当前位置 >>所有请假</strong></td>
+  </tr>
+  <tr>
+    <td  height="85" valign="top"> 
+    <TABLE cellPadding=2 cellSpacing=1  width="100%" >
+        <!--DWLayoutTable-->
+    <tr>
+    <td width="100%" >
+    <table width="100%" border="0" cellpadding="1" cellspacing="1" class=table1>
+        <tr>
+         <td nowrap align=center valign=middle  class=tr_head height=24 width=15%>请假者</td>
+         <td nowrap align=center valign=middle  class=tr_head width=10%>类型</td>
+         <td nowrap align=center valign=middle  class=tr_head width=45%>原因</td>
+         <td nowrap align=center valign=middle  class=tr_head width=10%>开始时间</td>
+         <td nowrap align=center valign=middle  class=tr_head width=10%>结束时间</td>   
+         <td nowrap align=center valign=middle  class=tr_head width=10%>审批人</td>     
+        </tr>
+         {foreach key=keyid item=cont from=$content}
+           <tr>
+           <td nowrap class=td1 height=24 align=center valign=middle >{$cont.leaver}</td>
+           <td nowrap class=td1 align=center valign=middle >{$cont.leavetypeid}</td>
+           <td nowrap class=td1 align=left valign=middle >{$cont.reason}</td>
+           <td nowrap class=td1 align=center valign=middle >{$cont.stime}</td>
+           <td nowrap class=td1 align=center valign=middle >{$cont.etime}</td>   
+           <td nowrap class=td1 align=center valign=middle >{$cont.passer}</td>         
+          </tr>
+        {foreachelse}
+			  <tr>
+   	       <td nowrap class=td1 colspan=6 height=24 align=center valign=middle >没有人请假！</td>        
+        </tr>
+			  {/foreach}	 
+        </table>
+      </td>
+    </tr>
+    </TABLE>
+    </td>
+  </tr>
+  {elseif $action=="myleave"}
+  <tr> 
+      <td  height="24"><strong>当前位置 >>我的请假</strong></td>
+  </tr>
+  <tr>
+    <td  height="85" valign="top"> 
+    <TABLE cellPadding=2 cellSpacing=1  width="100%" >
+        <!--DWLayoutTable-->
+    <tr>
+    <td width="100%" >
+    <table width="100%" border="0" cellpadding="1" cellspacing="1" class=table1>
+        <tr>
+         <td nowrap align=center valign=middle  class=tr_head height=24 width=15%>请假者</td>
+         <td nowrap align=center valign=middle  class=tr_head width=10%>类型</td>
+         <td nowrap align=center valign=middle  class=tr_head width=45%>原因</td>
+         <td nowrap align=center valign=middle  class=tr_head width=10%>开始时间</td>
+         <td nowrap align=center valign=middle  class=tr_head width=10%>结束时间</td>   
+         <td nowrap align=center valign=middle  class=tr_head width=10%>审批人</td>     
+        </tr>
+         {foreach key=keyid item=cont from=$content}
+           <tr>
+           <td nowrap class=td1 height=24 align=center valign=middle >{$cont.leaver}</td>
+           <td nowrap class=td1 align=center valign=middle >{$cont.leavetypeid}</td>
+           <td nowrap class=td1 align=left valign=middle >{$cont.reason}</td>
+           <td nowrap class=td1 align=center valign=middle >{$cont.stime}</td>
+           <td nowrap class=td1 align=center valign=middle >{$cont.etime}</td>   
+           <td nowrap class=td1 align=center valign=middle >{$cont.passer}</td>         
+          </tr>
+        {foreachelse}
+			  <tr>
+   	       <td nowrap class=td1 colspan=6 height=24 align=center valign=middle >今日没有人请假,不用审批</td>        
+        </tr>
+			  {/foreach}	 
+        </table>
+      </td>
+    </tr>
+    </TABLE>
+    </td>
+  </tr>
+  {elseif $action=="week"}
+  <tr> 
+      <td  height="24"><strong>当前位置 >> 本周请假</strong></td>
+  </tr>
+  <tr>
+    <td  height="85" valign="top"> 
+    <TABLE cellPadding=2 cellSpacing=1  width="100%" >
+        <!--DWLayoutTable-->
+    <tr> 
+    <td width="100%" >
+    <table width="100%" border="0" cellpadding="1" cellspacing="1" class=table1>
+ {foreach key=keyid item=cont from=$content}
+         <tr>
+    <td width="43" class=td1 valign="top" height=46 align=center>
+	  <table width="100%" border="0" cellpadding="1" cellspacing="0" background="./templates/{$style}/images/date-bg.gif" align=center>
+      <!--DWLayoutTable-->
+      <tr>
+        <td width="43" height="14" valign="top" align=center>
+         {$cont.date_n}月</td>
+      </tr>
+      <tr>
+        <td height="32" valign="middle" align=center>
+        <p style="font-size: 16px;color=red;"><b>{$cont.date_d}</b></p>
+        </td>
+      </tr>
+    </table>
+    </td>
+    <td  valign="top" class=td1>
+      <table width="100%" border="0" cellpadding="1" cellspacing="0">
+      <!--DWLayoutTable-->
+      <tr>
+      	<td nowrap align=center valign=middle class=tr_head2 height=24>星期</td>
+      </tr>
+        <tr>
+         <td align=center valign=middle class=td1 height=22>                 
+             {$cont.nowweek}
+         </td>
+        </tr>
+      </table>
+    </td>
+        <td  valign="middle" >
+      <table width="100%" border="0" cellpadding="1" cellspacing="0">
+      <!--DWLayoutTable-->
+        <tr>
+         <td nowrap align=center valign=middle  class=tr_head height=24 width=15%>请假者</td>
+         <td nowrap align=center valign=middle  class=tr_head width=10%>类型</td>
+         <td nowrap align=center valign=middle  class=tr_head width=45%>原因</td>
+         <td nowrap align=center valign=middle  class=tr_head width=10%>开始时间</td>
+         <td nowrap align=center valign=middle  class=tr_head width=10%>结束时间</td>   
+         <td nowrap align=center valign=middle  class=tr_head width=10%>审批人</td>     
+        </tr>
+        {foreach key=keyid_1 item=c from=$s.[keyid]}  
+           <tr>
+           <td nowrap class=td1 height=24 align=center valign=middle >{$c.leaver}</td>
+           <td nowrap class=td1 align=center valign=middle >{$c.leavetypeid}</td> 
+           <td nowrap class=td1 align=left valign=middle >{$c.reason}</td>
+           <td nowrap class=td1 align=center valign=middle >{$c.stime}</td>
+           <td nowrap class=td1 align=center valign=middle >{$c.etime}</td>   
+           <td nowrap class=td1 align=center valign=middle >{$c.passer}</td>         
+          </tr>
+        {foreachelse}
+			  <tr>
+   	       <td nowrap class=td1 colspan=6 height=24 align=center valign=middle >今日没有人请假!</td>        
+        </tr>  
+        {/foreach}
+      </table>
+    </td>
+   </tr>
+           {/foreach}
+        </table>
+      </td>
+    </tr> 
+    </TABLE>
+    </td>
+  </tr>
+  {else}
+  <tr> 
+      <td  height="24"><strong>当前位置 >> 今日请假</strong> (<a href=?filename=leave&typeid={$typeid}&action=pass><font color=red>请假审批</font></a>)</td>
+  </tr>
+  <tr>
+    <td  height="85" valign="top"> 
+    <TABLE cellPadding=2 cellSpacing=1  width="100%" >
+        <!--DWLayoutTable-->
+    <tr>
+    <td width="100%" >
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class=tableborder>
+  <!--DWLayoutTable-->
+  <tr>
+    <td width="43"  valign="top" height=46 align=center>
+	  <table width="100%" border="0" cellpadding="1" cellspacing="0" background="./templates/{$style}/images/date-bg.gif" align=center>
+      <!--DWLayoutTable-->
+      <tr>
+        <td width="43" height="14" valign="top" align=center>
+         {$date_n}月</td>
+      </tr>
+      <tr>
+        <td height="32" valign="middle" align=center>
+        <p style="font-size: 16px;color=red;"><b>今日</b></p>
+        </td>
+      </tr>
+    </table>
+    </td>
+      <td  valign="top">
+      	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <!--DWLayoutTable-->
+    <tr>
+    <td >
+        <table width="100%" border="0" cellpadding="1" cellspacing="1" class=table1>
+         <tr>
+         <td nowrap height=24 align=center valign=middle class=tr_head width=15%>请假者</td>
+         <td nowrap align=center valign=middle class=tr_head width=10%>类型</td>
+         <td nowrap align=center valign=middle class=tr_head width=45%>原因</td>
+         <td nowrap align=center valign=middle class=tr_head width=10%>开始时间</td>
+         <td nowrap align=center valign=middle class=tr_head width=10%>结束时间</td>   
+         <td nowrap align=center valign=middle class=tr_head width=10%>审批人</td>         
+        </tr>
+        <tr> 	
+        	<td height="1" valign="niddle" bgcolor="#A1C34D" colspan=6></td>
+        </tr>
+         <!--DWLayoutTable-->
+                {foreach key=keyid item=cont from=$content}
+           <tr>
+           <td nowrap class=td1 height=24 align=center valign=middle >{$cont.leaver}</td>
+           <td nowrap class=td1 align=center valign=middle >{$cont.leavetypeid}</td>
+           <td nowrap class=td1 align=left valign=middle >{$cont.reason}</td>
+           <td nowrap class=td1 align=center valign=middle >{$cont.stime}</td>
+           <td nowrap class=td1 align=center valign=middle >{$cont.etime}</td>   
+           <td nowrap class=td1 align=center valign=middle >{$cont.passer}</td>       
+          </tr>
+        {foreachelse}
+			  <tr>
+   	       <td nowrap class=td1 colspan=6 height=24 align=center valign=middle >今日没有人请假,不用审批</td>        
+        </tr>
+			  {/foreach}	
+        </table>
+      </td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="10" valign="middle" align=center>
+        </td>
+      </tr>
+    </table>
+    </td>
+    </tr>
+    <tr align="center" valign="middle">
+    <td  class=tdrowhighlight>{$pagenav}</td>
+    </tr>
+    </TABLE>
+    </td>
+  </tr>
+  {/if}
+</table>
+<table width="100%" border="0" cellpadding="1" cellspacing="0" align=center>
+      <!--DWLayoutTable-->
+      <tr>
+        <td  height="14" valign="top" align=center>
+        </td>
+      </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>凤鸣山中小学网络办公室--凤鸣山中小学网络办公室2011</title>
+<meta name="keywords" content="学校网站，软件,学校oa系统,学校办公">
+<meta name="description" content="凤鸣山中小学网络办公室">
+<link rel="stylesheet" type="text/css" href="./ext/resources/css/ext-all.css" />
+<style type="text/css">
+<!--
+A {
+	TEXT-DECORATION: none;
+}
+A:link {
+	COLOR: #000000;
+}
+A:visited {
+	COLOR: #333333;
+}
+A:hover {
+	COLOR: #ae0927;
+}
+A:active {
+	COLOR: #0000ff;
+}
+-->
+</style>
+
+</head>
+<body>
+	<div id="loading-mask" style="">
+<div id="loading">
+  <div style="text-align:center;padding-top:26%"><img src="./templates/test/images/extanim32.gif" width="32" height="32" style="margin-right:8px;" align="absmiddle"/>Loading...</div>
+</div>
+</div>
+<script type="text/javascript" src="./ext/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="./ext/ext-all.js"></script>
+<script type="text/javascript" src="./ext/ext-lang-zh_CN.js"></script>
+<script type="text/javascript">
+/**
+* 让iframe充满整个tabpanel
+*/
+function SetWinHeight(obj)
+{
+	var win=obj;
+	if(document.all){
+		if (document.getElementById)
+		{
+			if (win && !window.opera)
+			{
+				if (win.contentDocument && win.contentDocument.body.offsetHeight)
+				win.height = win.contentDocument.body.offsetHeight;
+				else if(win.Document && win.Document.body.scrollHeight)
+				win.height = win.Document.body.scrollHeight;
+			}
+		}
+	}else{
+		var frm = obj;
+		var subWeb = document.frames ? document.frames[obj.id].document : frm.contentDocument;
+		if(frm != null && subWeb != null)
+		{
+			frm.style.height="0px";//初始化一下,否则会保留大页面高度
+			frm.style.height = subWeb.documentElement.scrollHeight+"px";
+			frm.style.width = subWeb.documentElement.scrollWidth+"px";
+			subWeb.body.style.overflowX="auto";
+			subWeb.body.style.overflowY="auto";
+		}
+	}
+}
+
+Ext.BLANK_IMAGE_URL = './ext/resources/images/default/s.gif';
+Ext.QuickTips.init();
+
+Ext.onReady(function(){
+	//创建默认的tabpanel首页---table
+	var maintab=new Ext.TabPanel({
+		region:'center',//部署的区域，参考上图，center是中间显示页面区域
+		autoScroll:true,
+		animScroll:true,
+		resizTabs:true,
+		enableTabScroll:true,
+		activeTab:0,
+		deferredRender:false,
+		autoScroll:true,
+		margins:'0 4 4 0',
+		defaults: {
+			autoScroll:false,
+			autoHeight:true
+		},
+		tabMargin:0,
+		items:[{
+			//创建一个默认的TAB，用于显示欢迎信息
+			id:'mainFrame',
+			title:'我的网络办公桌面',
+			iconCls: 'tabs',
+			link:'index.php?filename=table',
+			//iconCls:'icon-root-s',
+			//autoLoad:{URL:'http://www.nbcjzx.com', scripts:true}
+			html:'<iframe name=tag id=i_mainFrame scrolling=auto frameborder=0  src=index.php?filename=table width=100% onload=javascript:SetWinHeight(this);></iframe>'
+		}]
+	});
+	
+	var tree_json=[{id:'tab2',text: '短信箱',icon:'./templates/test/images/menu/sms.gif',leaf: true,URL:'index.php?filename=message&typeid=2'},{id:'tab3',text: '日程安排',icon:'./templates/test/images/menu/calendar.gif',leaf: true,URL:'index.php?filename=schedule&typeid=3'},{id:'tab29',text: '待办提醒',icon:'./templates/test/images/menu/clock.gif',leaf: true,URL:'index.php?filename=schedule&typeid=29&action=t&typeid=29'},{id:'tab4',text: '通讯录',icon:'./templates/test/images/menu/address.gif',children: [{id:'tab22',text: '个人通讯录',icon:'./templates/test/images/menu/address.gif',leaf: true,URL:'index.php?filename=letter&action=person&typeid=22'},{id:'tab23',text: '单位通讯录',icon:'./templates/test/images/menu/contract.gif',leaf: true,URL:'index.php?filename=letter&action=public&typeid=23'}]},{id:'tab5',text: '文件柜',icon:'./templates/test/images/menu/file_folder.gif',leaf: true,URL:'index.php?filename=fileg&typeid=5'},{id:'tab25',text: '文章管理',icon:'./templates/test/images/menu/diary.gif',children: [{id:'tab26',text: '发表文章',icon:'./templates/test/images/menu/vote.gif',leaf: true,URL:'index.php?filename=article&action=add&typeid=26'},{id:'tab27',text: '文章列表',icon:'./templates/test/images/menu/new_email.gif',leaf: true,URL:'index.php?filename=article&action=list&typeid=27'}]},{id:'tab12',text: '收藏夹',icon:'./templates/test/images/menu/calendar2.gif',leaf: true,URL:'index.php?filename=favorite&typeid=12'}];
+	var root=new Ext.tree.AsyncTreeNode({
+	text:'菜单根目录', 
+	expanded:true,
+	children: tree_json
+});
+var tree=new Ext.tree.TreePanel({
+	width:180,
+	border:false,
+	autoHeight:true,
+	root:root,
+	selModel: new Ext.tree.MultiSelectionModel(),
+	loader: new Ext.tree.TreeLoader(),
+	rootVisible:false,
+	listeners:
+	{
+	"click": function(node,e) {
+		if(node.isLeaf()){
+			e.stopEvent();
+			var n = maintab.getComponent(node.id);
+			if (!n) {
+			 var link=node.attributes.URL;
+				var n = maintab.add({
+				'id' : node.id,
+				'title' : node.text,
+				'link'  :link,
+				closable:true,
+				html:'<iframe  id=i_'+node.id+' scrolling=auto frameborder=0  src='+link+' width=100% onload=javascript:SetWinHeight(this);></iframe>'
+				});
+			}
+			maintab.setActiveTab(n);
+		}
+	}
+	}
+});
+	
+	var system_json=[
+      {id:'s_tab_1',text: '系统设置',children: [
+           {id:'s_tab_1_1',text: '系统信息',leaf: true,URL:'index.php?filename=setvar&action=setvar'},
+           {id:'s_tab_1_2',text: '首页设置',leaf: true,URL:'index.php?filename=setvar&action=setindex'}
+           ]},
+      {id:'s_tab_2',text: '栏目设置',children: [
+           {id:'s_tab_2_1',text: '栏目添加',leaf: true,URL:'index.php?filename=type&action=addtype'},
+           {id:'s_tab_2_2',text: '栏目管理',leaf: true,URL:'index.php?filename=type&action=listtype'}
+           ]},
+      {id:'s_tab_3',text: '用户设置',children: [
+           {id:'s_tab_3_1',text: '添加用户',leaf: true,URL:'index.php?filename=user&action=useradd'},
+           {id:'s_tab_3_2',text: '编辑用户',leaf: true,URL:'index.php?filename=user&action=useredit'},
+           {id:'s_tab_3_3',text: '用户信息',leaf: true,URL:'index.php?filename=user&action=infoedit'},
+           {id:'s_tab_3_4',text: '修改密码',leaf: true,URL:'index.php?filename=user&action=modifypassword'}
+           ]},      
+      {id:'s_tab_9',text: '组别设置',children: [
+           {id:'s_tab_9_1',text: '组别添加',leaf: true,URL:'index.php?filename=setting&action=group&do=add'},
+           {id:'s_tab_9_2',text: '组别编辑',leaf: true,URL:'index.php?filename=setting&action=group&do=list'}
+           ]},   
+      {id:'s_tab_4',text: '部门设置',children: [
+           {id:'s_tab_4_1',text: '部门添加',leaf: true,URL:'index.php?filename=setting&action=manage&do=add'},
+           {id:'s_tab_4_2',text: '部门编辑',leaf: true,URL:'index.php?filename=setting&action=manage&do=list'}
+           ]}, 
+      {id:'s_tab_5',text: '学科设置',children: [
+           {id:'s_tab_5_1',text: '学科添加',leaf: true,URL:'index.php?filename=setting&action=subject&do=add'},
+           {id:'s_tab_5_2',text: '学科编辑',leaf: true,URL:'index.php?filename=setting&action=subject&do=list'}
+           ]},   
+       {id:'s_tab_6',text: '班级设置',children: [
+           {id:'s_tab_6_1',text: '班级添加',leaf: true,URL:'index.php?filename=setting&action=classset&do=add'},
+           {id:'s_tab_6_2',text: '班级编辑',leaf: true,URL:'index.php?filename=setting&action=classset&do=list'}
+           ]},     
+       {id:'s_tab_7',text: '其他设置',children: [
+           {id:'s_tab_7_1',text: '本站公告',leaf: true,URL:'index.php?filename=announcement'},
+           {id:'s_tab_7_2',text: '友情链接',leaf: true,URL:'index.php?filename=friendlink'}
+           ]},            
+       {id:'s_tab_8',text: '日志管理',children: [
+           {id:'s_tab_8_1',text: '操作记录',leaf: true,URL:'index.php?filename=log&action=admin'},
+           {id:'s_tab_8_2',text: '登陆记录',leaf: true,URL:'index.php?filename=log&action=login'}
+           ]}
+       ];  
+	var system_root=new Ext.tree.AsyncTreeNode({
+	text:'菜单根目录', 
+	expanded:true,
+	
+	children: system_json
+});
+var system_tree=new Ext.tree.TreePanel({
+	width:180,singleClickExpend:true,
+	border:false,
+	autoHeight:true,
+	root:system_root,
+	selModel: new Ext.tree.MultiSelectionModel(),
+	loader: new Ext.tree.TreeLoader(),
+	rootVisible:false,
+	listeners:
+	{
+	"click": function(node,e) {
+		if(node.isLeaf()){
+			e.stopEvent();
+			var n = maintab.getComponent(node.id);
+			if (!n) {
+			 var link=node.attributes.URL;
+				var n = maintab.add({
+				'id' : node.id,
+				'title' : node.text,
+				'link' :node.attributes.URL,
+				closable:true,
+				html:'<iframe id=i_'+node.id+' scrolling=auto frameborder=0  src='+link+' width=100% onload=javascript:SetWinHeight(this);></iframe>'
+				});
+			}
+			maintab.setActiveTab(n);
+		}
+	}
+	}
+});
+	////////////////////////////
+	new Ext.Viewport({
+		layout:"border",
+		items:[{
+			border:false,
+			region:"north",
+			height:80,
+			split:false,
+			collapsible:true,
+			titleCollapse:true,
+			html:"<div id=tdiv style='height:54'><span style=float:left;><img src=./templates/test/images/left_banner.gif width=450 height=54 /></span><span style=float:left;><img src=./templates/test/images/right_banner.gif width=450 height=54 /></span></div><div id=oa-i></div>"
+		},{
+			region:"west",
+			//border:false,
+			id:"leftmenu",
+			title:"我的菜单",
+			width:180,
+			margins:'0 0 0 0',
+			split:true,
+			mixSize:180,
+			maxSize:180,
+			collapsible:true,
+			titleCollapse:true,
+			tbar:[{id:'tab16',text:"网络硬盘",link:'plugins/u/index.php?filename=main&typeid=16',handler:clickBtn},
+			{id:'tab2',text:"短信箱",link:'index.php?filename=message&typeid=2',handler:clickBtn},
+			{text:"我的网络办公桌面",handler:clickIndex}],
+			bbar:[{id:'tab11',text:"<font color=red><b>请  假</font>",link:'index.php?filename=leave&typeid=11&action=add',handler:clickBtn},
+			{id:'tab12',text:"收藏夹",link:'index.php?filename=favorite&typeid=12',handler:clickBtn},
+			{id:'tab26',text:"发表文章",link:'index.php?filename=article&action=add&typeid=26',handler:clickBtn}],
+			layout:"accordion",
+			margins:'0 0 0 0',
+			layoutConfig:{
+				activeOnTop:false,
+				animate:true,
+				collapsible :true,
+				autoWidth:true,
+				//autoHeight:true,
+
+				collapseFirst:false,
+				fill:true,
+				// border:false,
+				hideCollapseTool:false,
+				titleCollapse:true
+			},
+			//renderTo:'left_menu',
+			items:[{title:'我的网络办公桌面',border:false,items:[tree]},
+			{title:"系统管理", border:false,items:[system_tree]}]
+		},
+		maintab,
+		{
+			region:"south",
+			height:30,
+			split:false,
+			collapsible:true,
+			titleCollapse:true,
+			html:"<div id=userinfo style=width:100%;height:40;background-image:url('./templates/test/images/bg2.gif');><span style='margin-top:8;margin-left:5;float:left;FONT-SIZE:9pt;LINE-HEIGHT:120%;text-align:left;font-weight:bold'><img src=./templates/test/images/comm.gif align=absmiddle height=18 width=18> 当前用户:管理员 <img src=./templates/test/images/training.gif align=absmiddle height=16 width=16> 部门：网络中心</span><span style='float:right;text-align:right;FONT-SIZE:9pt;LINE-HEIGHT:120%;margin-top:8;margin-right:5'>开发笔记 技术支持</span></div>"
+		}]
+	});
+	var menu1 = new Ext.menu.Menu({
+		          id: 'basicMenu1',   
+		          items: [{id:'tab2',text:'短信箱',icon:'./templates/test/images/menu/sms.gif',URL:'index.php?filename=message&typeid=2',handler:clickMenu},{id:'tab3',text:'日程安排',icon:'./templates/test/images/menu/calendar.gif',URL:'index.php?filename=schedule&typeid=3',handler:clickMenu},{id:'tab29',text:'待办提醒',icon:'./templates/test/images/menu/clock.gif',URL:'index.php?filename=schedule&typeid=29&action=t&typeid=29',handler:clickMenu},{id:'tab4',text:'通讯录',icon:'./templates/test/images/menu/address.gif',menu:{items:[{id:'tab22',text:'个人通讯录',icon:'./templates/test/images/menu/address.gif',URL:'index.php?filename=letter&action=person&typeid=22',handler:clickMenu},{id:'tab23',text:'单位通讯录',icon:'./templates/test/images/menu/contract.gif',URL:'index.php?filename=letter&action=public&typeid=23',handler:clickMenu}]}},{id:'tab5',text:'文件柜',icon:'./templates/test/images/menu/file_folder.gif',URL:'index.php?filename=fileg&typeid=5',handler:clickMenu},{id:'tab25',text:'文章管理',icon:'./templates/test/images/menu/diary.gif',menu:{items:[{id:'tab26',text:'发表文章',icon:'./templates/test/images/menu/vote.gif',URL:'index.php?filename=article&action=add&typeid=26',handler:clickMenu},{id:'tab27',text:'文章列表',icon:'./templates/test/images/menu/new_email.gif',URL:'index.php?filename=article&action=list&typeid=27',handler:clickMenu}]}},{id:'tab12',text:'收藏夹',icon:'./templates/test/images/menu/calendar2.gif',URL:'index.php?filename=favorite&typeid=12',handler:clickMenu}]});var menu6 = new Ext.menu.Menu({
+		          id: 'basicMenu6',   
+		          items: [{id:'tab7',text:'行政通知',icon:'./templates/test/images/menu/notify2.gif',URL:'index.php?filename=list&action=class&typeid=7',handler:clickMenu},{id:'tab8',text:'工作安排',icon:'./templates/test/images/menu/linkman.gif',URL:'index.php?filename=list&action=class&typeid=8',handler:clickMenu},{id:'tab9',text:'资料下载',icon:'./templates/test/images/menu/histroy.gif',URL:'index.php?filename=list&action=class&typeid=9',handler:clickMenu},{id:'tab10',text:'会议通知',icon:'./templates/test/images/menu/netmeeting.gif',URL:'index.php?filename=list&action=class&typeid=10',handler:clickMenu},{id:'tab11',text:'公病事假',icon:'./templates/test/images/menu/book.gif',URL:'index.php?filename=leave&typeid=11',handler:clickMenu}]});var menu13 = new Ext.menu.Menu({
+		          id: 'basicMenu13',   
+		          items: [{id:'tab24',text:'课程表',icon:'./templates/test/images/menu/contract.gif',URL:'index.php?filename=classtable&typeid=24',handler:clickMenu},{id:'tab30',text:'成绩管理',icon:'./templates/test/images/menu/statistic.gif',URL:'plugins/xjglxt/index.php?filename=result&action=list&typeid=30',handler:clickMenu}]});var menu18 = new Ext.menu.Menu({
+		          id: 'basicMenu18',   
+		          items: [{id:'tab28',text:'实验室预约',icon:'./templates/test/images/menu/linkman.gif',URL:'plugins/yyxt/index.php?gtypeid=2&typeid=28',handler:clickMenu},{id:'tab19',text:'公共教室预约',icon:'./templates/test/images/menu/person_info.gif',URL:'plugins/yyxt/index.php?gtypeid=1&typeid=19',handler:clickMenu},{id:'tab31',text:'演示实验登记',icon:'./templates/test/images/menu/new_email.gif',URL:'plugins/sydj/index.php?typeid=31',handler:clickMenu}]});var menu32 = new Ext.menu.Menu({
+		          id: 'basicMenu32',   
+		          items: [{id:'tab20',text:'网上报修',icon:'./templates/test/images/menu/histroy.gif',URL:'plugins/bxxt/index.php?typeid=20',handler:clickMenu},{id:'tab21',text:'电教资料借记',icon:'./templates/test/images/menu/new_email.gif',URL:'plugins/jjxt/index.php?typeid=21',handler:clickMenu}]});var menu33 = new Ext.menu.Menu({
+		          id: 'basicMenu33',   
+		          items: [{id:'tab34',text:'内网ftp',icon:'./templates/test/images/menu/menu_url.gif',URL:'?filename=ftp?typeid=34',handler:clickMenu},{id:'tab14',text:'讨论区',icon:'./templates/test/images/menu/bbs.gif',URL:'index.php?filename=blank&typeid=14',handler:clickMenu},{id:'tab15',text:'网络会议',icon:'./templates/test/images/menu/netchat.gif',URL:'index.php?filename=blank&typeid=15',handler:clickMenu},{id:'tab16',text:'网络硬盘',icon:'./templates/test/images/menu/netdisk.gif',URL:'plugins/u/index.php?filename=main&typeid=16',handler:clickMenu},{id:'tab17',text:'网络调查',icon:'./templates/test/images/menu/query.gif',URL:'index.php?filename=blank&typeid=17',handler:clickMenu}]});	var tb = new Ext.Toolbar([
+	"<font color=red><b>凤鸣山中小学网络办公室欢迎您</font>",
+	"->",
+	{text:"我的网络办公桌面",icon:"./templates/test/images/menu/chatroom.gif",cls:'x-btn-text-icon',handler:clickIndex},"-",  //分配menu到按钮
+	{text:"我的办公桌",cls:'x-btn-text-icon',icon:"./templates/test/images/menu/mytable.gif",cls:'x-btn-text-icon',menu:menu1},"-",{text:"行政管理",cls:'x-btn-text-icon',icon:"./templates/test/images/menu/training.gif",cls:'x-btn-text-icon',menu:menu6},"-",{text:"教学管理",cls:'x-btn-text-icon',icon:"./templates/test/images/menu/1score.gif",cls:'x-btn-text-icon',menu:menu13},"-",{text:"教务管理",cls:'x-btn-text-icon',icon:"./templates/test/images/menu/asset.gif",cls:'x-btn-text-icon',menu:menu18},"-",{text:"后勤管理",cls:'x-btn-text-icon',icon:"./templates/test/images/menu/@sale.gif",cls:'x-btn-text-icon',menu:menu32},"-",{text:"网络管理",cls:'x-btn-text-icon',icon:"./templates/test/images/menu/world_time.gif",cls:'x-btn-text-icon',menu:menu33},"-",	{text:"注销" ,icon:"./templates/test/images/menu/workflow.gif",cls:'x-btn-text-icon',handler:clickOut}
+	]);
+	tb.render("oa-i");
+	function clickOut(){
+		Ext.MessageBox.confirm('退出系统','你是否退出本系统！',function(btn){
+			if (btn=='yes')
+			window.location.href='index.php?filename=login&action=out';
+		});
+	}
+	function clickMenu(item) {
+		var n = maintab.getComponent(item.id);
+		if (!n) {
+			var link=item.URL;
+			var n = maintab.add({
+			'id' : item.id,
+			'title' : item.text,
+			'link':item.URL,
+			closable:true,
+			html:'<iframe id=i_'+item.id+' scrolling=auto frameborder=0  src='+link+' width=100% onload=javascript:SetWinHeight(this);></iframe>'
+			});
+		}
+		maintab.setActiveTab(n);
+	};
+	function clickBtn(node) {
+		var n = maintab.getComponent(node.id);
+		if (!n) {
+			var link=node.link;
+			var n = maintab.add({
+			'id' : node.id,
+			'title' : node.text,
+			'link' :node.link,
+			closable:true,
+			html:'<iframe id=i_'+node.id+' scrolling=auto frameborder=0  src='+link+' width=100% onload=javascript:SetWinHeight(this);></iframe>'
+			});
+		}
+		maintab.setActiveTab(n);
+	}
+	maintab.on('contextmenu', onContextMenu);
+	function onContextMenu(ts, item, e)
+	{
+		var nodemenu=new Ext.menu.Menu
+		({
+			items:[
+			{text:'刷新',iconCls:'reflash',handler:function() {
+				//var tiframe = document.getElementById('i_'+item.id);
+				//tiframe.src=item.link;
+				//tiframe.location.reload();
+				window.frames['i_'+item.id].location.reload(); 
+				maintab.setActiveTab(item.id);
+			}
+			}
+			]
+		});
+		nodemenu.showAt(e.getPoint());
+	};
+
+	function clickIndex(item) {
+		maintab.setActiveTab('mainFrame')
+	} ;
+
+		//树节点都展开
+		tree.expandAll();
+		//system_tree.expandAll();
+});
+setTimeout(function() {
+	Ext.get('loading-mask').fadeOut( {
+		remove : true
+	});
+}, 250);
+</script>
+</body> 
+</html>

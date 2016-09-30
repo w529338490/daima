@@ -1,0 +1,40 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{stripslashes:blogConfig.sitename} &rsaquo; <!-- IF friendType == "1" -->我关注的人<!-- ELSE -->关注我的人<!-- ENDIF --></title>
+<meta content="{stripslashes:blogConfig.keywords}" name="keywords" />
+<meta content="{stripslashes:blogConfig.description}" name="description" />
+<link rel="stylesheet" type="text/css" href="_static/{blogConfig.skin}/style.css" />
+<script type="text/javascript" src="_static/js/jquery.js"></script>
+</head>
+<body>
+<!-- INCLUDE header.html -->
+<div id="main">
+	<!-- BEGIN friendArr.Friend -->
+		<div class="entry<!-- IF ROWCNT == "0" --> first<!-- ENDIF -->">
+		<div class="avatar">
+			<a href="{furl}" target="_blank"><img src="./friend_server.php?avatar={friendavatar}" alt="{friendname}" title="{friendname}"></a>
+		</div>
+		<div class="info">
+			<div class="content">
+			<a href="{furl}" target="_blank">{friendname}</a>：{friendmsg}
+			<!-- IF friendpic != "" -->
+				<a href="{furl}" target="_blank"><img src="{friendpic}" onError="this.src='./friend_server.php?img={friendpid}'"></a>
+			<!-- ENDIF -->
+			</div>
+			<div class="time"><span>{datetime:friendtime} from {friendorigin}</span></div>
+			<div class="clear"></div>
+		</div>
+		</div>
+	<!-- END -->
+    <div class="pages">
+	<em>
+		<!-- IF friendType == "1" -->共关注了 {friendArr.Total} 位好友<!-- ELSE -->共被 {friendArr.Total} 位好友关注<!-- ENDIF -->
+	</em>
+	{pageArr.pageFirst}{pageArr.pagePre}{pageArr.pageList}{pageArr.pageNext}{pageArr.pageLast}
+	</div>
+</div>
+<!-- INCLUDE footer.html -->
+</body>
+</html>

@@ -1,0 +1,23 @@
+@charset "utf-8";
+<!-- product_cart_cart/product_cart_cart.php -->
+.product_cart_cart_container{
+	width:100%;
+}
+
+.product_cart_listings_category{
+	font-weight:bold;
+	font-size:14px;
+	text-align:left;
+}
+.product_cart_listings_line{
+	width:100%;
+	background-image:url(../images/line.gif);
+	height:1px;
+	font-size:1px;
+}
+.product_cart_listings_text{
+	width:100%;
+	text-align:left;
+	line-height:20px;
+	padding-left:20px;
+}

@@ -1,0 +1,168 @@
+BODY {
+	FONT-SIZE: 12px; MARGIN: 0px; COLOR: #444444; FONT-FAMILY: "arial"; TEXT-DECORATION: none
+}
+A {
+	COLOR: #444444; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #81685d; TEXT-DECORATION: underline
+}
+.lu9 {
+	FONT-SIZE: 9px; COLOR: #85817d; FONT-FAMILY: "arial"; TEXT-DECORATION: none
+}
+.lu9 A:unknown {
+	FONT-SIZE: 9px; COLOR: #85817d; FONT-FAMILY: "arial"; TEXT-DECORATION: none
+}
+.lu9 A:visited {
+	FONT-SIZE: 9px; COLOR: #85817d; FONT-FAMILY: "arial"; TEXT-DECORATION: none
+}
+.lu9 A:hover {
+	FONT-SIZE: 9px; COLOR: #000000; FONT-FAMILY: "arial"; TEXT-DECORATION: underline
+}
+.lu10 {
+	FONT-SIZE: 10px; COLOR: #85817d; FONT-FAMILY: "arial"
+}
+.lu10 A:unknown {
+	FONT-SIZE: 10px; COLOR: #85817d; FONT-FAMILY: "arial"
+}
+.lu10 A:visited {
+	FONT-SIZE: 10px; COLOR: #85817d; FONT-FAMILY: "arial"
+}
+.lu10 A:hover {
+	FONT-SIZE: 10px; COLOR: #85817d; FONT-FAMILY: "arial"
+}
+#mainarticle {
+	MARGIN-BOTTOM: 7px
+}
+#column {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FLOAT: right; PADDING-BOTTOM: 5px; WIDTH: 205px; PADDING-TOP: 5px
+}
+.subtitle {
+	FONT-WEIGHT: bold; FONT-SIZE: 20px; COLOR: #000000; TEXT-INDENT: 36px; FONT-FAMILY: "arial"
+}
+#contents {
+	PADDING-RIGHT: 35px; PADDING-LEFT: 35px; PADDING-BOTTOM: 35px; PADDING-TOP: 35px
+}
+.gr12 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #1b6d5a; FONT-FAMILY: "arial"
+}
+.gr12 A:unknown {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #1b6d5a; FONT-FAMILY: "arial"
+}
+.gr12 A:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #1b6d5a; FONT-FAMILY: "arial"
+}
+.gr12 A:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #1b6d5a; FONT-FAMILY: "arial"
+}
+.gr12_33 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #333333; FONT-FAMILY: "arial"
+}
+.gr12_33 A:unknown {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #333333; FONT-FAMILY: "arial"
+}
+.gr12_33 A:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #333333; FONT-FAMILY: "arial"
+}
+.gr12_33 A:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #333333; FONT-FAMILY: "arial"
+}
+.gr12_66 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "arial"
+}
+.gr12_66 A:unknown {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "arial"
+}
+.gr12_66 A:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "arial"
+}
+.gr12_66 A:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "arial"
+}
+.gr12_99 {
+	FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "arial"
+}
+.gr12_99 A:unknown {
+	FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "arial"
+}
+.gr12_99 A:visited {
+	FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "arial"
+}
+.gr12_99 A:hover {
+	FONT-SIZE: 12px; COLOR: #666666; FONT-FAMILY: "arial"
+}
+.bl12_9f {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #9999ff; FONT-FAMILY: "arial"
+}
+.bl12_9f A:unknown {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #9999ff; FONT-FAMILY: "arial"
+}
+.bl12_9f A:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #9999ff; FONT-FAMILY: "arial"
+}
+.bl12_9f A:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #9999ff; FONT-FAMILY: "arial"
+}
+.gr14 {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #000000; FONT-FAMILY: "arial"
+}
+.gr14 A:unknown {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #000000; FONT-FAMILY: "arial"
+}
+.gr14 A:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #000000; FONT-FAMILY: "arial"
+}
+.gr14 A:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #000000; FONT-FAMILY: "arial"
+}
+#newstitle {
+	  FONT-SIZE: 12px; MARGIN-LEFT: 10px; COLOR: #000000; MARGIN-RIGHT: 20px; FONT-FAMILY: "arial"
+}
+#rss {
+	MARGIN-TOP: 20px; MARGIN-LEFT: 20px; MARGIN-RIGHT: 20px
+}
+.brwn11 {
+	FONT-SIZE: 11px; COLOR: #a16c4b; FONT-FAMILY: "arial"
+}
+.brwn11 A:unknown {
+	FONT-SIZE: 11px; COLOR: #a16c4b; FONT-FAMILY: "arial"
+}
+.brwn11 A:visited {
+	FONT-SIZE: 11px; COLOR: #a16c4b; FONT-FAMILY: "arial"
+}
+.brwn11 A:hover {
+	FONT-SIZE: 11px; COLOR: #a16c4b; FONT-FAMILY: "arial"
+}
+.blc11 {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: "arial"
+}
+.blc11 A:unknown {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: "arial"
+}
+.blc11 A:visited {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: "arial"
+}
+.blc11 A:hover {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: "arial"
+}
+.purl12 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #783b4a; FONT-FAMILY: "arial"
+}
+.purl12 A:unknown {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #783b4a; FONT-FAMILY: "arial"
+}
+.purl12 A:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #783b4a; FONT-FAMILY: "arial"
+}
+.purl12 A:hover {
+	FONT-WEIGHT: bold; FONT-SIZE: 12px; COLOR: #783b4a; FONT-FAMILY: "arial"
+}
+#articlelist {
+	MARGIN-TOP: 10px; FONT-SIZE: 12px; MARGIN-BOTTOM: 10px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+#smoke_img {
+	FLOAT: left; MARGIN-BOTTOM: 3px; WIDTH: 100px; MARGIN-RIGHT: 3px; HEIGHT: 128px
+}
+.listbox {
+	BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #cccccc 1px solid; COLOR: #333333; TEXT-INDENT: 2px; BORDER-BOTTOM: #cccccc 1px solid; FONT-STYLE: normal; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}

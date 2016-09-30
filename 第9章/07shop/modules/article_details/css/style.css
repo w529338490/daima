@@ -1,0 +1,121 @@
+@charset "utf-8";
+<!-- article_details/com/text.php -->
+.article_details_com_text{
+	width:100%;
+}
+.article_details_com_text_line{
+	width:100%;
+	background-image:url(../images/line.gif);
+	height:1px;
+	font-size:1px;
+}
+.article_details_com_text_category{
+	width:100%;
+	font-weight:bold;
+	font-size:14px;
+}
+.article_details_com_text_text{
+	width:100%;
+	padding-top:5px;
+}
+<!-- article_details/com/pictureleft_text.php -->
+.article_details_com_pictureleft_text{
+	width:100%;
+}
+.article_details_com_pictureleft_img{
+	
+}
+.article_details_com_pictureleft_text_category{
+	width:100%;
+	font-weight:bold;
+	font-size:14px;
+}
+.article_details_com_pictureleft_text_line{
+	width:100%;
+	background-image:url(../images/line.gif);
+	height:1px;
+	font-size:1px;
+}
+.article_details_com_pictureleft_text_text{
+	width:100%;
+	padding-top:5px;
+}
+<!-- article_details/com/pictureright_text.php -->
+.article_details_com_pictureright_text{
+	width:100%;
+}
+.article_details_com_pictureright_text_img{
+	
+}
+.article_details_com_pictureright_text_category{
+	width:100%;
+	font-weight:bold;
+	font-size:14px;
+}
+.article_details_com_pictureright_text_line{
+	width:100%;
+	background-image:url(../images/line.gif);
+	height:1px;
+	font-size:1px;
+}
+.article_details_com_pictureright_text_text{
+	width:100%;
+	padding-top:5px;
+}
+<!-- article_details/com/picturetop_text.php -->
+.article_details_com_picturetop_text{
+	width:100%;
+	text-align:center;
+}
+.article_details_com_picturetop_text_img{
+	
+}
+.article_details_com_picturetop_text_picture{
+	width:100%;
+	text-align:center;
+	padding-top:5px;
+}
+.article_details_com_picturetop_text_category{
+	width:100%;
+	font-weight:bold;
+	font-size:14px;
+	text-align:left;
+}
+.article_details_com_picturetop_text_line{
+	width:100%;
+	background-image:url(../images/line.gif);
+	height:1px;
+	font-size:1px;
+}
+.article_details_com_picturetop_text_text{
+	width:100%;
+	text-align:left;
+}
+<!-- article_details/com/picturebottom_text.php -->
+.article_details_com_picturebottom_text{
+	width:100%;
+	text-align:center;
+}
+.article_details_com_picturebottom_text_img{
+	
+}
+.article_details_com_picturebottom_text_category{
+	width:100%;
+	font-weight:bold;
+	font-size:14px;
+	text-align:left;
+}
+.article_details_com_picturebottom_text_line{
+	width:100%;
+	background-image:url(../images/line.gif);
+	height:1px;
+	font-size:1px;
+}
+.article_details_com_picturebottom_text_picture{
+	width:100%;
+	text-align:center;
+}
+.article_details_com_picturebottom_text_text{
+	width:100%;
+	text-align:left;
+}

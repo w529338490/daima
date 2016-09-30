@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{stripslashes:blogConfig.sitename} &rsaquo; 同步更新设置</title>
+<link rel="stylesheet" type="text/css" href="_static/{blogConfig.skin}/style.css" />
+<script type="text/javascript" src="_static/js/jquery.js"></script>
+<script type="text/javascript" src="_static/js/form.js"></script>
+<script type="text/javascript" src="_static/js/sync.js"></script>
+</head>
+<body>
+<!-- INCLUDE header.html -->
+<div id="main" class="profile_edit">
+<form name="setForm" id="setForm" method="post">
+	<h2 class="nav_title">同步更新到Twitter</h2>
+	<p class="s_e">
+		<strong>用户名:</strong> （ 不同步请留空 ）
+		<input type="text" class="input_narrow" name="twitter[username]" value="{stripslashes:syncConfig.twitter.username}" maxlength="50" />
+	</p>
+	<p class="s_e">
+		<strong>密码:</strong> （ 不同步请留空 ）
+		<input type="password" class="input_narrow" name="twitter[password]" value="{stripslashes:syncConfig.twitter.password}" maxlength="25" />
+	</p>
+	<h2 class="clear nav_title">同步更新到新浪微博</h2>
+	<p class="s_e">
+		<strong>用户名:</strong> （ 不同步请留空 ）
+		<input type="text" class="input_narrow" name="sina[username]" value="{stripslashes:syncConfig.sina.username}" maxlength="50" />
+	</p>
+	<p class="s_e">
+		<strong>密码:</strong> （ 不同步请留空 ）
+		<input type="password" class="input_narrow" name="sina[password]" value="{stripslashes:syncConfig.sina.password}" maxlength="25" />
+	</p>
+	<h2 class="clear nav_title">同步更新到嘀咕</h2>
+	<p class="s_e">
+		<strong>用户名:</strong> （ 不同步请留空 ）
+		<input type="text" class="input_narrow" name="digu[username]" value="{stripslashes:syncConfig.digu.username}" maxlength="50" />
+	</p>
+	<p class="s_e">
+		<strong>密码:</strong> （ 不同步请留空 ）
+		<input type="password" class="input_narrow" name="digu[password]" value="{stripslashes:syncConfig.digu.password}" maxlength="25" />
+	</p>
+	<h2 class="clear nav_title">同步更新到9911微博客</h2>
+	<p class="s_e">
+		<strong>用户名:</strong> （ 不同步请留空 ）
+		<input type="text" class="input_narrow" name="9911[username]" value="{stripslashes:syncConfig.9911.username}" maxlength="50" />
+	</p>
+	<p class="s_e">
+		<strong>密码:</strong> （ 不同步请留空 ）
+		<input type="password" class="input_narrow" name="9911[password]" value="{stripslashes:syncConfig.9911.password}" maxlength="25" />
+	</p>
+	<p class="s_s">
+		<input type="submit" name="save" value="保存更改" class="input_submit" />
+	</p>
+	<p id="result" class="s_r"></p>
+</form>
+<div class="clear"></div>
+</div>
+<!-- INCLUDE footer.html -->
+</body>
+</html>

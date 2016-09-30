@@ -1,0 +1,189 @@
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=gbk'>
+<title>{$sitetitle}</title>
+<LINK href="./templates/{$style}/css/style.css" rel=stylesheet type=text/css>
+<script language="JavaScript">
+function redirect(url) {
+        window.location.replace(url);
+}
+</script>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">    
+{if $action=='admin'}
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr> 
+    <td  height="42" valign="top">
+    <TABLE width="100%" border=0 align=center cellPadding=2 cellSpacing=1 class=tableborder>
+        <!--DWLayoutTable-->
+        <TBODY>
+          <TR> 
+            <TD align=middle bgcolor="#4466cc" class=submenu>管理日志</TD>
+          </TR>
+          <TR> 
+            <TD class=tablerow><B>管理选项：</B> <A 
+      href="?filename=log&action=admin">操作记录</A> (<a href="?filename=log&action=deladmin"><b><font color=red>清空</font></b></a>) | <A 
+      href="?filename=log&action=login">登陆记录</A> 
+      </TD>
+          </TR>
+        </TBODY>
+      </TABLE></td>
+  </tr>
+  <tr> 
+      <td  height="24"><strong>当前位置：管理日志 >> 操作记录</strong></td>
+  </tr>
+  <tr> 
+    <td  height="309" valign="top"> 
+    <TABLE cellPadding=2 cellSpacing=1 class=tableborder width="100%" >
+        <!--DWLayoutTable-->  
+        <TBODY>
+          <TR> 
+            <TH colSpan=5>操作记录</TH>
+          </TR>
+         <tr align="center" valign=middle>
+           <td class=tablerowhighlight>ID</td>
+           <td class=tablerowhighlight>IP</td>
+           <td class=tablerowhighlight>时间</td>
+           <td class=tablerowhighlight>文件</td>
+           <td class=tablerowhighlight>操作</td>
+         </tr>
+           {foreach key=keyid item=cont from=$content}
+            <tr bgColor="#f1f3f5" onmouseout="this.style.backgroundColor='#F1F3F5'" onmouseover="this.style.backgroundColor='#BFDFFF'">
+                <td  align="center" heigth=20>{$cont.adminlogid}</td>
+                <td  align="center">{$cont.ipaddress}</td>
+                <td  align="center">{$cont.intime}</td>
+                <td >{$cont.logscript}</td>
+                <td align="center">{$cont.logaction}</td>
+             </tr>
+           {foreachelse}
+           没有记录
+           {/foreach}
+         <tr align="center" valign="middle">
+           <td colSpan=5 class=tablerowhighlight>{$pagenav}</td>
+         </tr>
+        </tbody>
+     </table>
+    </td> 
+    </tr>   
+</table>
+{elseif $action=='login'}
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr> 
+    <td  height="42" valign="top">
+    <TABLE width="100%" border=0 align=center cellPadding=2 cellSpacing=1 class=tableborder>
+        <!--DWLayoutTable-->
+        <TBODY>
+          <TR> 
+            <TD align=middle bgcolor="#4466cc" class=submenu>管理日志</TD>
+          </TR>
+          <TR> 
+            <TD class=tablerow><B>管理选项：</B> <A 
+      href="?filename=log&action=admin">操作记录</A> | <A 
+      href="?filename=log&action=login">登陆记录</A> (<a href="?filename=log&action=dellogin"><b><font color=red>清空</font></b></a>)
+      </TD>
+          </TR>
+        </TBODY>
+      </TABLE></td>
+  </tr>
+  <tr> 
+      <td  height="24"><strong>当前位置：管理日志 >> 登陆记录</strong></td>
+  </tr>
+  <tr> 
+    <td  height="309" valign="top"> 
+    <TABLE cellPadding=2 cellSpacing=1 class=tableborder width="100%" >
+        <!--DWLayoutTable-->  
+        <TBODY>
+          <TR> 
+            <TH colSpan=6>登陆记录</TH>
+          </TR>
+          <tr align=center valign=middle>
+            <td class=tablerowhighlight>ID</td>
+            <td class=tablerowhighlight>用户名</td>
+            <td class=tablerowhighlight>密码</td>
+            <td class=tablerowhighlight>时间</td>
+            <td class=tablerowhighlight>IP</td>
+                <td class=tablerowhighlight>结果</td>
+         </tr>
+           {foreach key=keyid item=cont from=$content}
+            <tr bgColor="#f1f3f5" onmouseout="this.style.backgroundColor='#F1F3F5'" onmouseover="this.style.backgroundColor='#BFDFFF'">
+                <td  align="center" heigth=20>{$cont.loginlogid}</td>
+                <td  align="center">{$cont.logusername}</td>
+                <td  align="center">{$cont.logpassword}</td>
+                <td align="center" >{$cont.intime}</td>
+                <td align="center">{$cont.logipaddress}</td>
+                <td  align="center">{$cont.result}</td>
+             </tr>
+           {foreachelse}
+                      没有记录
+           {/foreach}
+                    <tr align="center" valign="middle">
+           <td colSpan=6 class=tablerowhighlight>{$pagenav}</td>
+         </tr>
+        </tbody>
+     </table>
+    </td> 
+    </tr>   
+</table>
+{elseif $action=='deladmin'}
+<table border=0 align=center cellPadding=0 cellSpacing=0  width=100%  heigth=500>
+<tr  >
+<td height=500 valign=top>
+<table border=0 align=center cellPadding=2 cellSpacing=1 class=tableborder width=100%>
+<form action="?filename=log"  method="post" name="adminlogrm" >
+<tr>
+    <td align=middle bgcolor="#4466cc" class=submenu colspan="2">
+     <b>删除所有管理记录</b>
+    </td>
+</tr>
+<tr bgColor="#f1f3f5">
+    <td>请输入 config.php 文件中的密匙:</td>
+    <td>
+      <input  type="password" name="pass" size="35" maxlength="50" value="" >
+    </td>
+</tr>
+<tr align="center" bgColor="#f1f3f5">
+  <td colspan="2"><font color="#FF0000">注意：删除所有管理记录，确定吗？</font></td>
+</tr>
+<input type="hidden" name="action" value="removeadmin">
+<tr bgColor="#f1f3f5">
+<td colspan="2" align="center">
+ <input class="bginput" accesskey="y" type="submit" name="submit" value=" 确认 " > 
+ <input class="bginput" accesskey="r" type="button" name="" value=" 取消 "  onclick="history.back(1)" > 
+</td>
+</tr>
+</form>
+</table>
+{elseif $action=='dellogin'}
+<table border=0 align=center cellPadding=0 cellSpacing=0  width=100%  heigth=500>
+<tr  >
+<td height=500 valign=top>
+<table border=0 align=center cellPadding=2 cellSpacing=1 class=tableborder width=100%>
+<form action="?filename=log"  method="post" name="adminlogrm" >
+<tr>
+    <td align=middle bgcolor="#4466cc" class=submenu colspan="2">
+     <b>删除所有登陆记录</b>
+    </td>
+</tr>
+<tr bgColor="#f1f3f5">
+    <td>请输入 config.php 文件中的密匙:</td>
+    <td>
+      <input  type="password" name="pass" size="35" maxlength="50" value="" >
+    </td>
+</tr>
+<tr align="center" bgColor="#f1f3f5">
+  <td colspan="2"><font color="#FF0000">注意：删除所有管理记录，确定吗？</font></td>
+</tr>
+<input type="hidden" name="action" value="removelogin">
+<tr bgColor="#f1f3f5">
+<td colspan="2" align="center">
+ <input class="bginput" accesskey="y" type="submit" name="submit" value=" 确认 " > 
+ <input class="bginput" accesskey="r" type="button" name="" value=" 取消 "  onclick="history.back(1)" > 
+</td>
+</tr>
+</form>
+</table>
+{/if}
+</body>
+</html>

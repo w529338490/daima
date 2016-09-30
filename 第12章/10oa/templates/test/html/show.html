@@ -1,0 +1,106 @@
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=gb2312'>
+<title>F 学校网络办公系统2009 v2.2.0</title>
+<LINK href="./templates/{$style}/css/style.css" rel=stylesheet type=text/css>
+<script language="JavaScript">
+var yourwidth=200;
+function resizeObj(obj)
+{
+try
+{
+var objw=obj.offsetWidth;
+var objh=obj.offsetHeight;
+if(objw>100)
+{
+objh=yourwidth/objw*objh;
+objw=yourwidth;
+obj.style.height=objh;
+obj.style.width=objw;
+}
+}
+catch(ee)
+{}
+}
+</script>
+<script language="Javascript" type="text/Javascript">
+//双击鼠标滚动屏幕的代码
+var currentpos,timer;
+function initialize()
+{
+timer=setInterval ("scrollwindow ()",30);
+}
+function sc()
+{
+clearInterval(timer);
+}
+function scrollwindow()
+{
+currentpos=document.body.scrollTop;
+window.scroll(0,++currentpos);
+if (currentpos !=document.body.scrollTop)
+sc();
+}
+document.onmousedown=sc
+document.ondblclick=initialize
+
+//更改字体大小
+var status0='';
+var curfontsize=10;
+var curlineheight=18;
+function fontZoomA(){
+  if(curfontsize>8){
+    document.getElementById('fontzoom').style.fontSize=(--curfontsize)+'pt';
+	document.getElementById('fontzoom').style.lineHeight=(--curlineheight)+'pt';
+  }
+}
+function fontZoomB(){
+  if(curfontsize<64){
+    document.getElementById('fontzoom').style.fontSize=(++curfontsize)+'pt';
+	document.getElementById('fontzoom').style.lineHeight=(++curlineheight)+'pt';
+  }
+}
+</script>
+</head>
+<body leftmargin=0 topmargin=0  bg>
+<table align=center border=0 cellPadding=0 cellSpacing=0 class=center_tdbgall style="WORD-BREAK: break-all" width=760>
+  <tr> 
+    <td width="757"> <table border=0 cellPadding=0 cellSpacing=0 class=main_title_760 style="WORD-BREAK: break-all" width="100%">
+        <tr> 
+          <td vAlign=center width="3%"><IMG src="./templates/{$style}/images/arrow.gif" width="12" height="11" align=absMiddle></td>
+          <td width="66%"><STRONG><font color=blue>{$includepic}{$title}</font></STRONG></td>
+          <td width="18%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color=green>荐</font>&nbsp;&nbsp;<font color='#009999'>★★★</font></td>
+          <td align=right width="13%">【字体：<A href="javascript:fontZoomA();"><FONT color=#ffffff>小</FONT></A> 
+            <A href="javascript:fontZoomB();"><FONT color=#ffffff>大</FONT></A>】</td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr align=middle vAlign=center> 
+    <td class=main_ArticleTitle height=50 style="WORD-BREAK: break-all">{$title}</td>
+  </tr>
+  <tr align=middle vAlign=center> 
+    <td class=main_ArticleSubheading style="WORD-BREAK: break-all">{$subheading}</td>
+  </tr>
+  <tr align=middle> 
+    <td class=Article_tdbgall>作者：{$author}&nbsp;&nbsp;&nbsp;&nbsp;文章来源：{$copyfrom}&nbsp;&nbsp;&nbsp;&nbsp;点击数：{$hits} 
+      &nbsp;&nbsp;&nbsp;&nbsp;发布时间：{$addtime}</td>
+  </tr>
+  <tr> 
+    <td class=main_tdbg_760 height=300 id=fontzoom style="WORD-BREAK: break-all" vAlign=top> 
+      {$content}
+      {$addfile}
+	  </td>
+  </tr>
+  <tr> 
+    <td align=right class=Article_tdbgall>文章录入：{$author}&nbsp;&nbsp;&nbsp;&nbsp;责任编辑：{$author} 
+    </td>
+  </tr>
+  <tr align=right class=Article_tdbgall> 
+    <td>&nbsp; </td>
+  </tr>
+</table>
+  </body>
+</html>
+<NOSCRIPT><IFRAME src='*' Width='0' Height='0'></IFRAME></NOSCRIPT>
+</body>
+</html>

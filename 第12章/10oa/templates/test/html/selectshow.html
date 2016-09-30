@@ -1,0 +1,94 @@
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=gbk'>
+<title>{$sitetitle}</title>
+<LINK href="./templates/{$style}/css/style.css" rel=stylesheet type=text/css>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="margin:0px;background:#F8F8F0;overflow:auto;">
+  <!--DWLayoutTable-->
+{if $action=="selectshow"}
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <!--DWLayoutTable-->
+  <tr>
+    <td  valign="top"> 
+    <TABLE cellPadding=2 cellSpacing=1  width="100%" >
+        <!--DWLayoutTable-->
+    <tr>
+    <td width="100%" valign="top">
+    	<table width="100%" border="0" cellpadding="0" cellspacing="0" class=tableborder>
+       <!--DWLayoutTable-->
+       <tr>
+        <td width="100%"  valign="middle" align=center height=32 class=tr_head>
+        {$selectyear}学年{$classname}{$teachername}{$showtablename}课程表
+        	  <font color=red>
+        	  <a href=?filename=classtable&action=printtable&selectyear={$selectyear}&selectclass={$selectclass}>(打印课表)</a></font>
+        	  <font color=red>
+        	  	{if $usertype=="c"} 
+        	  <a href=?filename=classtable&action=toword&usertype=c&do=1&selectyear={$selectyear}&selectclass={$selectclass}>(保存至word)</a></font></td>
+               {else}
+                <a href=?filename=classtable&action=toword&usertype=t&do=1&selectyear={$selectyear}&selectclass={$teachername}>(保存至word)</a></font></td> 
+               {/if} 
+      </tr>
+      <tr>
+        <td width="100%"  valign="middle" align=center>
+        	<table width="100%" border="0" cellpadding="0" cellspacing="0" > 
+
+            <tr>
+              <td width="100%"  valign="middle" align=center colspan=2>
+        	          	<TABLE cellPadding=2 cellSpacing=1 class=tableborder width="100%" >
+                        
+                           <TBODY>
+                         	
+  <tr>
+    <td width="10%" height="32" align="center" valign="middle" class=tr_head>星期</td>
+    <td  width=18% align="center" valign="middle" class=tr_head>星期一</td>
+    <td  width=18% align="center" valign="middle" class=tr_head>星期二</td>
+    <td  width=18% align="center" valign="middle" class=tr_head>星期三</td>
+    <td  width=18% align="center" valign="middle" class=tr_head>星期四</td>
+    <td  width=18% align="center" valign="middle" class=tr_head>星期五</td>
+  </tr>
+  {if $usertype=="t"} 
+    <tr>
+      <td height="28" align="center" valign="middle" class=tr_head2>节次</td>
+      <td  align="center" valign="middle" class=tr_head2>课名/班级</td>    
+    <td align="center" valign="middle" class=tr_head2>课名/班级</td>
+    <td  align="center" valign="middle" class=tr_head2>课名/班级</td>    
+    <td align="center" valign="middle" class=tr_head2>课名/班级</td>
+    <td  align="center" valign="middle" class=tr_head2>课名/班级</td>
+    </tr> 
+  {else}
+      <tr>
+      <td height="28" align="center" valign="middle" class=tr_head2>节次</td>
+      <td  align="center" valign="middle" class=tr_head2>课名/教师</td>    
+    <td align="center" valign="middle" class=tr_head2>课名/教师</td>
+    <td  align="center" valign="middle" class=tr_head2>课名/教师</td>    
+    <td align="center" valign="middle" class=tr_head2>课名/教师</td>
+    <td  align="center" valign="middle" class=tr_head2>课名/教师</td>
+  </tr> 
+  {/if}
+  {foreach key=keyid item=cont from=$classnum_arr}
+  <tr>
+    <td height="24" align="center" valign="middle" class=td2>{$cont}</td>
+    {foreach key=keyid2 item=c from=$week_arr}
+    <td align="center" valign="middle" class=td2>{$name[keyid2][keyid]}/{$classnum[keyid2][keyid]}</td>
+    {/foreach}
+  </tr>
+ {/foreach} 
+   </TBODY>
+
+                       </TABLE>
+              </td>
+             </tr>
+          </table>
+        </td>
+      </tr>
+     </table>
+    </td>
+   </tr>
+    </TABLE>
+    </td>
+  </tr>
+</table>
+  {/if}
+</body>
+</html>

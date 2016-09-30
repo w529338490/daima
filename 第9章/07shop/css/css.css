@@ -1,0 +1,135 @@
+@charset "utf-8";
+<!--样式-->
+body{
+	margin-bottom:0px;
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+}
+
+a:visited{ color: #000000; text-decoration: none }
+a:hover {color: #000000;text-decoration: underline}
+a:link { color: #000000; text-decoration: none }
+
+.firsttable{
+	width:100%;
+	border:0px;
+	padding:0px;
+	margin:0px;
+}
+.centertable{
+	width:760px;
+	border:0px;
+	padding:0px;
+	margin:0px;
+}
+.centertable1{
+	width:800px;
+	border:0px;
+	padding:0px;
+	margin:0px;
+	font-size: 15px;
+}
+.containContentsTable{
+	width:100%;
+	border:0px;
+	font-size: 12px;
+	padding:0px;
+	margin:0px;
+}
+.containContentsTable1{
+	width:100%;
+	border:0px;
+	font-size: 15px;
+	padding:0px;
+	margin:0px;
+}
+.contentsTable{
+	width:100%;
+ 	border: 1px solid #eeeeee;
+	font-size: 12px;
+	padding:0px;
+	margin:0px;
+}
+.tablefont{
+ 	border: 1px solid;
+	font-size: 12px;
+}
+.addborder{
+	height:400px;
+}
+.tablebg{
+	background-color:#E3E3E3;
+}
+.tr1{
+	background-color:#CECECE;
+	height:20px;
+}
+.tr2{
+	background-color:#E3E3E3;
+}
+.tr3{
+    font-weight:bold;
+	background-color:E4E8EF;
+}
+.tr4{
+	font-weight:bold;
+}
+.message{
+	font-size: 13px;
+	font-weight:bold;
+	color:#FF3300;
+}
+.addTable{
+	width:100%;
+ 	border: 1px solid;
+	font-size: 12px;
+	padding:0px;
+	margin:0px;
+}
+.star{
+	color:red;
+}
+.lookfont{
+	word-break;all;
+}
+.button{
+	font-size: 12px;
+	border:1px solid #C9E3F0;
+	background-color:#ffffff;
+}
+.fontb{
+	font-weight:bold;
+}
+.luntanlist{
+	
+	font-size: 12px;
+	padding-left:10px;
+	line-height:23px;
+}
+.tubiao{
+	font-size:12px;
+	color:#666666;
+}
+.font1{
+	font-size:12px;
+}
+.tubiao a:visited{ color: #666666; text-decoration: none }
+.tubiao a:hover {color: #666666;text-decoration: underline}
+.tubiao a:link { color: #666666; text-decoration: none }
+
+.top{font-size:12px;color:#D9DB70; text-align:center;}
+.top a:visited{ color: #D9DB70; text-decoration: none }
+.top a:hover {color: #D9DB70; text-decoration: none}
+.top a:link { color: #D9DB70; text-decoration: none }
+
+.font2{
+	font-size:13px;
+	color:#000000;
+	font-family:Arial, Helvetica, sans-serif;
+}
+.font3{
+	font-size:13px;
+	color:#000000;
+	font-family:Arial, Helvetica, sans-serif;
+}

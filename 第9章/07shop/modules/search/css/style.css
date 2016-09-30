@@ -1,0 +1,32 @@
+@charset \\\"utf-8\\\";
+<!-- search/com/mod_search.php -->
+.search_com_mod_search{
+	width:100%;
+}
+.search_button{
+	font-size: 12px;
+	border:1px solid #C9E3F0;
+	background-color:#ffffff;
+}
+.search_com_mod_search_Title{
+	width:100%;
+	font-weight:bold;
+	font-size:14px;
+	text-align:left;
+}
+.search_keyword_box{
+
+}
+.search_com_mod_search_Box{
+	width:100%;
+	padding-top:5px;
+}
+.search_com_mod_search_Text{
+	width:100%;
+}
+.search_com_mod_search_line{
+	width:100%;
+	background-image:url(../images/line.gif);
+	height:1px;
+	font-size:1px;
+}

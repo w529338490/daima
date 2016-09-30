@@ -1,0 +1,35 @@
+@charset "utf-8";
+body{
+	font-size:12px;
+	color:#666666;
+}
+
+<!-- box -->
+.box_top_left{background-image:url(../images/box_top_left.gif);}
+.box_top_bg{background-image:url(../images/box_top_bg.gif); font-size:1px;}
+.box_top_right{background-image:url(../images/box_top_right.gif);}
+.box_bottom_left{background-image:url(../images/box_bottom_left.gif);}
+.box_bottom_bg{background-image:url(../images/box_bottom_bg.gif); font-size:1px;}
+.box_bottom_right{background-image:url(../images/box_bottom_right.gif);}
+.box_left{background-image:url(../images/box_left.gif); font-size:1px;}
+.box_right{background-image:url(../images/box_right.gif); font-size:1px;}
+
+.star{
+	color:#FF0000;
+}
+.message{
+	color:#FF0000;
+}
+.button{
+	font-size: 12px;
+	border:1px solid #C9E3F0;
+	background-color:#ffffff;
+}
+.product_cart_tr1{
+	background-color:#E4E4E4;
+	height:20px;
+}
+.product_cart_tr2{
+	background-color:#f4f4f4;
+	height:20px;
+}

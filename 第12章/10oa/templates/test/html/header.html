@@ -1,0 +1,95 @@
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=gb2312'>
+<title>{$sitetitle}</title>
+<LINK href="./templates/{$style}/css/style.css" rel=stylesheet type=text/css>
+<script>
+function menu_click(menu_id)
+{
+	parent.left.location="index.php?filename=left&action=listmenu&menu_id="+menu_id;
+}
+var OA_TIME = new Date();
+function timeview()
+{
+  timestr=OA_TIME.toLocaleString();
+  timestr=timestr.substr(timestr.indexOf(":")-2);
+  document.getElementById("time_area").innerHTML = timestr;
+  OA_TIME.setSeconds(OA_TIME.getSeconds()+1);
+  window.setTimeout( "timeview()", 1000 );
+}
+
+</script>
+<body leftmargin="0" topmargin="0" onload="timeview();">
+<table class="small" width="100%" border="0" cellspacing="1" cellpadding="1" height=40>
+  <tr class="topbar" >
+    <td nowrap valign=bottom height=40>
+      	<div class=header >
+      &nbsp;SCHOOL 2007 网络智能办公系统</div>
+    </td>
+    <td align=right>
+    	<table width="340" height="100%" class="small" border=0 cellspacing="0" cellpadding="0">
+    		<tr>
+    			<td align=center valign=top>
+         <span style="PADDING-TOP:2px;color:#000000; WIDTH: 100%; FONT-SIZE: 9pt;">
+          <SCRIPT language=JavaScript>
+var day="";
+var month="";
+var ampm="";
+var ampmhour="";
+var myweekday="";
+var year="";
+mydate=new Date();
+myweekday=mydate.getDay();
+mymonth=mydate.getMonth()+1;
+myday= mydate.getDate();
+myyear= mydate.getYear();
+year=(myyear > 200) ? myyear : 1900 + myyear;
+if(myweekday == 0)
+weekday=" 星期日 ";
+else if(myweekday == 1)
+weekday=" 星期一 ";
+else if(myweekday == 2)
+weekday=" 星期二 ";
+else if(myweekday == 3)
+weekday=" 星期三 ";
+else if(myweekday == 4)
+weekday=" 星期四 ";
+else if(myweekday == 5)
+weekday=" 星期五 ";
+else if(myweekday == 6)
+weekday=" 星期六 ";
+document.write(year+"年"+mymonth+"月"+myday+"日"+weekday);
+      </SCRIPT>
+          <img src="./templates/{$style}/images/time.gif" align="absmiddle">
+        <span id="time_area"></span>&nbsp;
+        </span>
+        </td>
+       </tr>
+       <tr>
+       	<td valign=bottom align="right">
+           <a href="?filename=table" target="right"><img src="./templates/{$style}/images/menu/mytable.gif" align="absmiddle" width="16" height="16" border="0" alt="我的办公桌">&nbsp;桌面</a>&nbsp;&nbsp;&nbsp;
+           <a href="?filename=user&action=usersetting" target="right"><img src="./templates/{$style}/images/menu/person_info.gif" align="absmiddle" width="16" height="16" border="0" alt="控制面板">&nbsp;控制面板</a>&nbsp;&nbsp;&nbsp;
+           <a href="?filename=left&action=setting" target="left"><img src="./templates/{$style}/images/login.gif" border="0" align="absmiddle" width="16" height="16" alt="系统设置">&nbsp;系统设置</a>&nbsp;&nbsp;
+           <a href="?filename=login&action=logout" target="_top"><img src="./templates/{$style}/images/menu/exit.gif" align="absmiddle" width="16" height="16" border="0" alt="退出系统">&nbsp;退出</a>&nbsp;
+     </table>
+    </td>
+   </tr>
+</table>
+<table id="Nav_tb" class="small" width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr class="topbar2" height=25>
+    <td nowrap>
+    <div id="Nav" style="overflow:hidden;width:100%;">
+		  <table class="small" border="0" cellspacing="0" cellpadding="0" style="float:left;">
+		    <tr height=25>
+		      <td nowrap><a href="javascript:menu_click('0');">&nbsp;<img src="./templates/{$style}/images/dot3.gif"  WIDTH="8" HEIGHT="17" border="0" align="absmiddle">&nbsp;全部菜单&nbsp;</a></td>
+          {$top_nav}
+          </tr>
+        </table>
+      </div>
+    </td>
+    <td width="30" align="right"><img id="NavLeft"  src="./templates/{$style}/images/nav_l1.gif" style="display:none" title="显示左侧隐藏菜单"></td>
+    <td width="25" align="left" ><img id="NavRight" src="./templates/{$style}/images/nav_r1.gif" style="display:none" title="显示右侧隐藏菜单"></td>
+  </tr>
+</table>
+</body>
+</html>

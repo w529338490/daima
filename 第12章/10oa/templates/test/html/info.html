@@ -1,0 +1,60 @@
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=gb2312'>
+<title>{$sitetitle}</title>
+<LINK href="./templates/{$style}/css/style.css" rel=stylesheet type=text/css>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+{if $action=='lefttop'}
+<TABLE class="small" cellspacing="0" height="100%" width="100%" bgcolor="#EEEEEE" border="1" bordercolorlight="#000000" bordercolordark="#FFFFFF" cellpadding="0">
+ <TR>
+   <TD title="主菜单" id="menu_1"  align="center" style="cursor:hand">
+   主菜单
+   </TD>
+   <TD title="博客" id="menu_2"  onclick="parent.right.location.href='http://localhost/mblog/index.php';" align="center" style="cursor:hand">
+   博客
+   </TD>
+   <TD title="桌 面" id="menu_3" onclick="parent.right.location.href='index.php?filename=table';" align="center" style="cursor:hand">
+   桌 面
+   </TD>
+   </TR>
+</TABLE>
+{elseif $action=='leftbottom'}
+<TABLE class="small" cellspacing="0" height="100%" width="100%" bgcolor="#EEEEEE" border="1" bordercolorlight="#000000" bordercolordark="#FFFFFF" cellpadding="0">
+ <TR>
+   <TD title="短信箱" id="menu_5" onclick="parent.right.location.href='index.php?filename=message&typeid=2';" align="center" style="cursor:hand">
+   短信箱
+   </TD>
+   <TD title="挂接收藏的网址" id="menu_6" onclick="parent.right.location.href='index.php?filename=favorite&typeid=12';" align="center" style="cursor:hand">
+   收藏夹
+   </TD>
+   <TD title="发表文章" id="menu_4" onclick="parent.right.location.href='index.php?filename=article&action=add&typeid=26';" align="center" style="cursor:hand">
+   发表文章
+   </TD>
+   </TR>
+</TABLE>
+{elseif $action=='righttop'}
+<TABLE width="100%" border=0 align=center cellPadding=2 cellSpacing=1 bgcolor=#eeeeee>
+ <!--DWLayoutTable-->
+ <TBODY>
+  <TR> 
+    <TD align=left height=20 class=topbar3>
+    	&nbsp;<img src="./templates/{$style}/images/dot3.gif"  WIDTH="8" HEIGHT="17" border="0" align="absmiddle">
+    	欢迎您&nbsp;&nbsp;&nbsp;<img src="./templates/{$style}/images/hello.gif"  WIDTH="15" HEIGHT="15" border="0" align="absmiddle">
+    	〖{$managename}〗
+    	<img src="./templates/{$style}/images/arrow.gif"  WIDTH="4" HEIGHT="6" border="0" align="absmiddle">
+    	『{$real_name}』</TD>
+  </TR>
+ </TBODY>
+</TABLE>
+{elseif $action=='bottom'}
+<TABLE width="100%" border=0 align=center cellPadding=0 cellSpacing=0 bgcolor=#ffffff>
+ <!--DWLayoutTable-->
+ <TBODY>
+  <TR height=20> 
+    <TD  align=middle><font color=red><b>欢迎各位老师开通博客----<a href=http://blog.nbcjzx.com/register.php?user_name={$user_name} target=_blank> 博客注册 </a>-----</TD>
+  </TR>
+ </TBODY>
+</TABLE>
+{/if}
+</body>
+</html>

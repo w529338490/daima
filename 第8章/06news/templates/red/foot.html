@@ -1,0 +1,72 @@
+<!--<?php
+echo <<<EOT
+-->
+<div class="foot">
+<div class="footnav"> |
+<!--
+EOT;
+foreach($navfoot_list as $key=>$val){
+echo <<<EOT
+-->
+<a href="$val[c_url]" $val[new_windows]>$val[c_name]</a> |
+<!--
+EOT;
+}
+echo <<<EOT
+-->
+</div>
+<div class="foottext">
+<!--
+EOT;
+if($met_c_footright!=""){
+echo <<<EOT
+-->
+$met_c_footright
+<!--
+EOT;
+}
+if($met_c_footaddress!=""){
+echo <<<EOT
+-->
+<br />$met_c_footaddress
+<!--
+EOT;
+}
+if($met_c_foottel!=""){
+echo <<<EOT
+-->
+<br />$met_c_foottel
+<!--
+EOT;
+}
+if($met_c_footother!=""){
+echo <<<EOT
+-->
+<br />$met_c_footother
+<!--
+EOT;
+}
+echo <<<EOT
+-->
+<br />
+
+版权所有 未经许可 不得转载<!--
+EOT;
+if($met_c_foottext!=""){
+echo <<<EOT
+-->
+<br />$met_c_foottext
+<!--
+EOT;
+}
+echo <<<EOT
+-->
+
+</div>
+</div>
+</body>
+</html>
+
+<!--
+EOT;
+?>-->

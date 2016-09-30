@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=gbk'>
+<title>{$sitetitle}</title>
+<LINK href="./templates/{$style}/css/style.css" rel=stylesheet type=text/css>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="background:#F8F8F0;">
+{if $action==''}
+<link href="./swfupload/default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./swfupload/swfupload.js"></script>
+<script type="text/javascript" src="./swfupload/js/swfupload.swfobject.js"></script>
+<script type="text/javascript" src="./swfupload/js/fileprogress.js"></script>
+<script type="text/javascript" src="./swfupload/js/handlers.js"></script>
+<script type="text/javascript">
+var swfu;
+window.onload = function () {
+	swfu = new SWFUpload({
+		// Backend settings
+		upload_url: "?filename=swfupload&action=upfile",	// 指定了接收上传文件的服务器地址
+		file_post_name: "resume_file",  //upload.php指定接收的文件名
+
+		// Flash file settings
+		file_size_limit : "90000000",	// 大小限制单位是M
+		file_types : "*.rar;*.zip;*.doc;*.txt;*.jpeg;*.jpg;*.gif;*.bmp;*.ppt;*.xls;*.pdf;*.exe",	// 上传类型 like: "*.doc;*.wpd;*.pdf",
+		file_types_description : "支持类型",//文件类型描述
+		file_upload_limit : "0", // 文件上传个数
+		file_queue_limit : "1", // this isn't needed because the upload_limit will automatically place a queue limit
+
+		// Event handler settings
+		swfupload_loaded_handler : swfUploadLoaded,
+
+		file_dialog_start_handler: fileDialogStart,
+		file_queued_handler : fileQueued,
+		file_queue_error_handler : fileQueueError,
+		file_dialog_complete_handler : fileDialogComplete,
+
+		//upload_start_handler : uploadStart,	// I could do some client/JavaScript validation here, but I don't need to.
+		upload_progress_handler : uploadProgress,
+		upload_error_handler : uploadError,
+		upload_success_handler : uploadSuccess,
+		upload_complete_handler : uploadComplete,
+
+		// Button Settings
+		button_image_url : "./swfupload/XPButtonUploadText_61x22.png",	// Relative to the SWF file
+		button_placeholder_id : "spanButtonPlaceholder",
+		button_width: 61,
+		button_height: 22,
+
+		// Flash Settings
+		flash_url : "./swfupload/swfupload.swf",
+
+		custom_settings : {
+			progress_target : "fsUploadProgress",
+			upload_successful : false
+		},
+		// Debug settings
+		debug: false
+	});
+};
+	</script>
+</head>
+<body>
+	<form id="form1" action="?filename=swfupload&action=upok" enctype="multipart/form-data" method="post">
+			<span class="legend">上传文件(*.rar;*.zip;*.doc;*.txt;*.jpeg;*.jpg;*.gif;*.bmp;*.ppt;*.xls;*.pdf;*.exe)</span>
+			<table style="vertical-align:top;" width=300 height=200>
+				<tr>
+					<td height=120>							
+						<div class="flash" id="fsUploadProgress">
+								<!-- This is where the file progress gets shown.  SWFUpload doesn't update the UI directly.
+											The Handlers (in handlers.js) process the upload events and make the UI updates -->
+							</div>
+						  <div>
+								<input type="text" id="txtFileName" disabled="true" style="border: solid 1px; background-color: #FFFFFF;" />
+								<span id="spanButtonPlaceholder"></span>
+								
+							</div>
+							<input type="hidden" name="hidFileID" id="hidFileID" value="" />
+							<!-- This is where the file ID is stored after SWFUpload uploads the file and gets the ID back from upload.php -->
+					<input type=hidden name=uid value={$id}>
+					<input type="submit" value=" 开 始 上 传 " id="btnSubmit" /></td>
+				</tr>
+			</table>
+	</form>
+{/if}   
+</body>
+</html>
